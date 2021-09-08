@@ -74,7 +74,9 @@ Any contributions you make are **greatly appreciated**.
 ## Contact
 
 Vinícius Kruchelski Gugelmin - vinigugelmin@gmail.com
+
 Lucas Rodrigues Leite
+
 Thales Fuckner
 
 Project Link: [https://github.com/viniciusgugelmin/unemployeds-up](https://github.com/viniciusgugelmin/unemployeds-up)
