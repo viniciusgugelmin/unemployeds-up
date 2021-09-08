@@ -45,11 +45,11 @@ Project - Visual Software Development & Systems Analysis and Design (1st Bimeste
 
  #### Documentation
  
- [Documentation](https://viniciusgugelmin.github.io/unemployeds-up/Documentation/Documentation.pdf)
+ [Documentation](https://github.com/viniciusgugelmin/unemployeds-up/blob/main/Documentation/Documentation.pdf)
  
  ### UseCase
  
- [UC001](https://viniciusgugelmin.github.io/unemployeds-up/UseCase/UC001.pdf)
+ [UC001](https://github.com/viniciusgugelmin/unemployeds-up/blob/main/UseCase/UC001.pdf)
 
 
 ## Roadmap
