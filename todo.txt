@@ -1,8 +1,11 @@
 - Criar diagramas de caso de uso
 - Criar mais documentos de caso de uso
-- Acrescentar descrição de funcionalidades no arquivo de documentação
-- Acrescentar sumário de ilustrações na documentação
+OK - Acrescentar descrição de funcionalidades no arquivo de documentação
+OK - Acrescentar sumário de ilustrações na documentação
 - Fazer protótipo em HTML, CSS e JS básico
 - Fazer pesquisas de campo
 - Fazer reunião semanal
 - Verificar atualizações no README
+- Fazer especificação de requisitos
+- Fazer diagramas de arquitetura do sistema
+- Verificar ortografia da documentação
