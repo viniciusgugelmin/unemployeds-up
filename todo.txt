@@ -4,8 +4,8 @@ OK - Acrescentar descrição de funcionalidades no arquivo de documentação
 OK - Acrescentar sumário de ilustrações na documentação
 - Fazer protótipo em HTML, CSS e JS básico
 - Fazer pesquisas de campo
-- Fazer reunião semanal
-- Verificar atualizações no README
+OK Fazer reunião semanal
+OK Verificar atualizações no README
 - Fazer especificação de requisitos
 - Fazer diagramas de arquitetura do sistema
 - Verificar ortografia da documentação
