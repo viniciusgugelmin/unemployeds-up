@@ -9,3 +9,9 @@ OK Verificar atualizações no README
 - Fazer especificação de requisitos
 - Fazer diagramas de arquitetura do sistema
 - Verificar ortografia da documentação
+OK - Iniciar projeto C#
+- Iniciar projeto Angular
+- Conectar com banco de dados
+- Fazer API
+- Fazer telas
+

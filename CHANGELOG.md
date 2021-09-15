@@ -13,6 +13,7 @@
 - Requirements definition in documentation
 - More items in TODO list
 
-## [1.0.3] - 2021-09-14
+## [1.1.0] - 2021-09-14
 - UC001 updates
 - UC002 init
+- BPMN diagrams in documentation
