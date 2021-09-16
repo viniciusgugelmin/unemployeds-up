@@ -1,0 +1,15 @@
+- Cadastrar estudantes (simulando base de dados de uma Universidade)
+- Logar estudantes
+- Editar dados de estudante
+- Remover estudante
+- Cadastrar administradores
+- Logar administradores
+- Editar dados de administradores
+- Remover adminitradores
+- Editar dados de cursos
+- Cadastrar empresas
+- Cadastrar vagas de empresas
+- Editar dados de empresas
+- Editar dados de vagas de empresas
+- Remover vagas de empresas
+- Relacionar estudantes com vagas

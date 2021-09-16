@@ -1,0 +1,14 @@
+REQUISITOS NÃO-FUNCIONAIS
+- A base de dados deve ser protegida para acesso apenas de usuários autorizados, e esses devem ser alunos da Universidade detentora do sistema. 
+- O sistema precisa ser compatível com todos os sistemas operacionais e navegadores. 
+- O tempo de desenvolvimento não pode ultrapassar 6 meses. 
+- O sistema deve haver um cadastro extremamente seguro na validação de dados de acordo com a base de dados da Universidade.
+- Deve haver um script diário para verificar mudança no cadastro dos usuários ou no cancelamento dos mesmos.
+- O sistema deve haver respostas automáticas 100% funcionais quando em produção, não havendo falha e interrupção na execução das mesmas. 
+- A administração do sistema (por parte da administração da Universidade) precisa ser ágil e ter um tempo de solução de problemas e respostas curto. 
+- A atualização semestral de dados precisa ser ágil e correta, sem perda ou falta de dados.
+- O sistema precisa se adequar ao melhor meio de comunicação com as empresas quando para enviar os perfis dos estudantes.
+- Precisa haver uma tela de cadastro simples, fácil de utilizar e que permita apenas o preenchimento do número de matrícula equivalente a que está ativa na Universidade detentora do sistema.
+- Deve haver uma página de informações do usuário (não editáveis), onde as informações serão retornadas pela própria base de dados da Universidade, e um botão para requisitar alterações de determinados dados.
+- O sistema precisa ter um administrador geral, podendo gerar relatórios periódicos de movimentação de usuários.
+- O site precisa ter uma central de notificações, não necessariamente em tempo livre, mas que retornem informações de possíveis chamadas de emprego e status do curso, tendo um controle se o usuário deseja receber as notificações por e-mail ou não.
