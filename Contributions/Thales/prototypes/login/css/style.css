@@ -8,8 +8,8 @@
 }
 
 body {
-    background-image: url('../img/depositphotos_13415092-stock-photo-team-of-ants-rolls-stone.jpg');
-    background-size: cover;
+    //background-image: url('../img/depositphotos_13415092-stock-photo-team-of-ants-rolls-stone.jpg');
+    //background-size: cover;
 }
 
 textarea:focus,
