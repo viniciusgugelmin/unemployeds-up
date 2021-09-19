@@ -1,0 +1,30 @@
+###
+POST https://localhost:5001/api/administrator/
+Content-Type: application/json
+
+{
+    "Name": "Lorem Ipsum"
+}
+###
+
+###
+GET https://localhost:5001/api/administrator/
+###
+
+###
+GET https://localhost:5001/api/administrator/1
+###
+
+###
+PUT https://localhost:5001/api/administrator/
+Content-Type: application/json
+
+{
+    "Id": 1,
+    "Name": "Ipsum Lorem"
+}
+
+
+###
+DELETE  https://localhost:5001/api/administrator/1
+###

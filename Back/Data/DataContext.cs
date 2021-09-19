@@ -1,3 +1,4 @@
+using Back.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Back.Data
@@ -10,5 +11,7 @@ namespace Back.Data
         }
 
         /* public DbSet<tableName> tableNameInPlural { get; set; } */
+
+        public DbSet<Administrator> Administrators { get; set; }
     }
 }
