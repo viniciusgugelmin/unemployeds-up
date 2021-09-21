@@ -17,3 +17,11 @@
 - UC001 updates
 - UC002 init
 - BPMN diagrams in documentation
+
+## [1.2.0] - 2021-09-20
+- Back init (C#)
+- Fron init (Angular)
+- Administrator, Subject, Course model
+- Prototype login
+- Thales contributions (login prototype)
+

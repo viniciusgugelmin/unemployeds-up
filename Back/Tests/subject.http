@@ -1,0 +1,32 @@
+###
+POST https://localhost:5001/api/subject/
+Content-Type: application/json
+
+{
+    "Name": "Lorem Ipsum",
+    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend quam lobortis blandit tristique. Fusce id justo purus. Etiam et viverra velit, ac gravida ex. Sed egestas, mauris vitae tincidunt placerat, nisi libero pellentesque metus, non consequat dui tortor quis dui. Duis accumsan velit in libero convallis aliquet. Suspendisse at."
+}
+###
+
+###
+GET https://localhost:5001/api/subject/
+###
+
+###
+GET https://localhost:5001/api/subject/1
+###
+
+###
+PUT https://localhost:5001/api/subject/
+Content-Type: application/json
+
+{
+    "Id": 1,
+    "Name": "Ipsum Lorem",
+    "Description": "Lorem ipsum dolor sit amet."
+}
+
+
+###
+DELETE  https://localhost:5001/api/subject/1
+###

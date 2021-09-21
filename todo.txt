@@ -15,8 +15,8 @@ OK - Iniciar projeto Angular
 OK - Conectar com banco de dados
 OK - Fazer API
 OK - Fazer model de Administrador
-- Fazer model de Curso
-- Fazer model de Disciplina
+OK - Fazer model de Curso
+OK Fazer model de Disciplina
 - Fazer model de Estudante
 - Fazer model de Empresa
 - Fazer model de Vaga
@@ -24,14 +24,14 @@ OK - Fazer rota de cadastro de Administrador
 OK - Fazer rota de edição de Administrador
 OK - Fazer rota de listagem de Administradores
 OK - Fazer rota de remoção de Administrador
-- Fazer rota de criação de Curso
-- Fazer rota de edição de Curso
-- Fazer rota de listagem de Cursos
-- Fazer rota de remoção de Curso (soft delete)
-- Fazer rota de criação de objeto (Disciplina) relacionado a Curso (NN)
-- Fazer rota de edição de objeto (Disciplina) relacionado a Curso
-- Fazer rota de listagem de objetos (Disciplinas) relacionados a Curso
-- Fazer rota de remoção de objeto (Disciplina) relacionado a Curso
+OK - Fazer rota de criação de Curso
+OK - Fazer rota de edição de Curso
+OK - Fazer rota de listagem de Cursos
+OK - Fazer rota de remoção de Curso
+OK Fazer rota de criação de objeto (Disciplina) relacionado a Curso (1N)
+OK Fazer rota de edição de objeto (Disciplina) relacionado a Curso
+OK Fazer rota de listagem de objetos (Disciplinas) relacionados a Curso
+OK Fazer rota de remoção de objeto (Disciplina) relacionado a Curso
 - Fazer rota de cadastro de Estudante
 - Fazer rota de edição de Estudante
 - Fazer rota de listagem de Estudantes
