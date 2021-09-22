@@ -6,7 +6,8 @@ OK - Acrescentar sumário de ilustrações na documentação
 - Fazer pesquisas de campo
 OK Fazer reunião semanal
 OK Verificar atualizações no README
-- Fazer especificação de requisitos
+OK - Fazer especificação de requisitos funcionais
+OK - Fazer especificação de requisitos não funcionais
 - Fazer diagramas de arquitetura do sistema
 - Verificar ortografia da documentação
 OK - Iniciar projeto C#
