@@ -36,7 +36,7 @@ namespace Back.Controllers
         }
 
         // PUT
-        // /api/administrator/
+        // /api/administrator
         [HttpPut]
         [Route("")]
         public IActionResult Update([FromBody] Administrator administrator)

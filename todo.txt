@@ -16,7 +16,7 @@ OK - Conectar com banco de dados
 OK - Fazer API
 OK - Fazer model de Administrador
 OK - Fazer model de Curso
-OK Fazer model de Disciplina
+OK - Fazer model de Disciplina
 - Fazer model de Estudante
 - Fazer model de Empresa
 - Fazer model de Vaga
