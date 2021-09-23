@@ -35,6 +35,19 @@ namespace Back.Controllers
             return Ok(course);
         }
 
+        // GET
+        // /api/course/{id}/subjects
+        [HttpGet]
+        [Route("{id}/subjects")]
+        public IActionResult GetSubjects([FromRoute] Int32 id)
+        {
+            Course course = _dataContext.Courses.Find(id);
+
+            if (course == null) return NotFound();
+            
+            return Ok(course);
+        }
+
         // PUT
         // /api/course/
         [HttpPut]
@@ -64,9 +77,7 @@ namespace Back.Controllers
         [Route("{id}")]
         public IActionResult DeleteById([FromRoute] Int32 id)
         {
-            Course course = _dataContext.Courses.FirstOrDefault(
-                course => course.Id == id
-            );
+            Course course = _dataContext.Courses.Find(id);
 
             if (course == null) return NotFound();
 

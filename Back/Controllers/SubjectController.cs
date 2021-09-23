@@ -4,6 +4,7 @@ using System.Linq;
 using Back.Data;
 using Back.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Back.Controllers
 {
@@ -53,7 +54,7 @@ namespace Back.Controllers
         [Route("")]
         public IActionResult Create([FromBody] Subject subject) 
         {
-            _dataContext.Subjects.Add(subject);
+            // TODO
             _dataContext.SaveChanges();
             return Created("", subject);
         }
@@ -64,9 +65,7 @@ namespace Back.Controllers
         [Route("{id}")]
         public IActionResult DeleteById([FromRoute] Int32 id)
         {
-            Subject subject = _dataContext.Subjects.FirstOrDefault(
-                subject => subject.Id == id
-            );
+            Subject subject = _dataContext.Subjects.Find(id);
 
             if (subject == null) return NotFound();
 

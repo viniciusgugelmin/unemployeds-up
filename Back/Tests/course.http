@@ -17,6 +17,10 @@ GET https://localhost:5001/api/course/1
 ###
 
 ###
+GET https://localhost:5001/api/course/1/subjects
+###
+
+###
 PUT https://localhost:5001/api/course/
 Content-Type: application/json
 

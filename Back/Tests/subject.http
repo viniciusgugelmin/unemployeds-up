@@ -4,6 +4,7 @@ Content-Type: application/json
 
 {
     "Name": "Lorem Ipsum",
+    "CourseId": 1,
     "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend quam lobortis blandit tristique. Fusce id justo purus. Etiam et viverra velit, ac gravida ex. Sed egestas, mauris vitae tincidunt placerat, nisi libero pellentesque metus, non consequat dui tortor quis dui. Duis accumsan velit in libero convallis aliquet. Suspendisse at."
 }
 ###

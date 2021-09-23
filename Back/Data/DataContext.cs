@@ -11,14 +11,6 @@ namespace Back.Data
         {
         }
 
-        /// Relations
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Course>()
-            .HasMany(c => c.Subject)
-            .WithOne(s => s.Course);
-        }
-
         /// Tables
 
         public DbSet<Administrator> Administrators { get; set; }
@@ -26,5 +18,20 @@ namespace Back.Data
         public DbSet<Course> Courses { get; set; }
 
         public DbSet<Subject> Subjects { get; set; }
+
+        /// Relations
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Subject>()
+            .HasOne(s => s.Course)
+            .WithMany(c => c.Subject)
+            .HasForeignKey(s => s.CourseId)
+            .IsRequired();
+
+            modelBuilder.Entity<Course>()
+            .HasMany(c => c.Subject)
+            .WithOne(s => s.Course)
+            .OnDelete(DeleteBehavior.Cascade);
+        }
     }
 }

@@ -64,9 +64,7 @@ namespace Back.Controllers
         [Route("{id}")]
         public IActionResult DeleteById([FromRoute] Int32 id)
         {
-            Administrator administrator = _dataContext.Administrators.FirstOrDefault(
-                administrator => administrator.Id == id
-            );
+            Administrator administrator = _dataContext.Administrators.Find(id);
 
             if (administrator == null) return NotFound();
 
