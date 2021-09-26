@@ -84,9 +84,9 @@ namespace Back.Controllers
         [Route("{id}")]
         public IActionResult DeleteById([FromRoute] Int32 id)
         {
-            Administrator administrator = _administratorDAO.FindById(id);
+            Boolean administratorExists = _administratorDAO.AdministratorExists(id);
 
-            if (administrator == null) return NotFound();
+            if (!administratorExists) return NotFound();
 
            _administratorDAO.Delete(id);
 
