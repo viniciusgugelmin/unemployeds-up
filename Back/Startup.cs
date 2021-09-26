@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Back.DAO;
 using Back.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -28,9 +29,11 @@ namespace Back
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services
-                .AddDbContext<DataContext>(options =>
-                    options.UseInMemoryDatabase("database"));
+            // Database config
+            services.AddDbContext<DataContext>(
+                options => options.UseInMemoryDatabase("database")
+                );
+
 
             services.AddControllers();
             services
@@ -40,6 +43,9 @@ namespace Back
                         .SwaggerDoc("v1",
                         new OpenApiInfo { Title = "Back", Version = "v1" });
                 });
+
+            // DAO Scopes
+            services.AddScoped<AdministratorDAO>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

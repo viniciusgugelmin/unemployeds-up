@@ -1,6 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
+using Back.DAO;
 using Back.Data;
 using Back.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -12,15 +11,21 @@ namespace Back.Controllers
     public class AdministratorController : ControllerBase
     {
         private readonly DataContext _dataContext;
+        private readonly AdministratorDAO _administratorDAO;
 
-        public AdministratorController(DataContext dataContext) 
-            => _dataContext = dataContext;
+        public AdministratorController(
+            DataContext dataContext, 
+            AdministratorDAO administratorDAO) 
+        {
+            _dataContext = dataContext;
+            _administratorDAO = administratorDAO;
+        } 
         
         // GET
         // /api/administrator
         [HttpGet]
         [Route("")]
-        public IActionResult Get() => Ok(_dataContext.Administrators.ToList());
+        public IActionResult Get() => Ok(_administratorDAO.List());
 
         // GET
         // /api/administrator/{id}
@@ -28,7 +33,7 @@ namespace Back.Controllers
         [Route("{id}")]
         public IActionResult GetById([FromRoute] Int32 id)
         {
-            Administrator administrator = _dataContext.Administrators.Find(id);
+            Administrator administrator = _administratorDAO.FindById(id);
 
             if (administrator == null) return NotFound();
             
@@ -41,10 +46,17 @@ namespace Back.Controllers
         [Route("")]
         public IActionResult Update([FromBody] Administrator administrator)
         {
-            _dataContext.Administrators.Update(administrator);
-            _dataContext.SaveChanges();
+            if (administrator.Name == null) {
+                return ValidationProblem("Name is required");
+            }
 
-            return Ok(administrator);
+            if (administrator.Password == null) {
+                return ValidationProblem("Password is required");
+            }
+
+            _administratorDAO.Update(administrator);
+
+            return Ok(administrator); 
         }
 
         // POST
@@ -53,8 +65,16 @@ namespace Back.Controllers
         [Route("")]
         public IActionResult Create([FromBody] Administrator administrator) 
         {
-            _dataContext.Administrators.Add(administrator);
-            _dataContext.SaveChanges();
+            if (administrator.Name == null) {
+                return ValidationProblem("Name is required");
+            }
+
+            if (administrator.Password == null) {
+                return ValidationProblem("Password is required");
+            }
+            
+            _administratorDAO.Create(administrator);
+
             return Created("", administrator);
         }
 
@@ -64,14 +84,13 @@ namespace Back.Controllers
         [Route("{id}")]
         public IActionResult DeleteById([FromRoute] Int32 id)
         {
-            Administrator administrator = _dataContext.Administrators.Find(id);
+            Administrator administrator = _administratorDAO.FindById(id);
 
             if (administrator == null) return NotFound();
 
-            _dataContext.Administrators.Remove(administrator);
-            _dataContext.SaveChanges();
+           _administratorDAO.Delete(id);
 
-            return Ok(_dataContext.Administrators.ToList());
+            return Ok(_administratorDAO.List());
         }
     }
 }

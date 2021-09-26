@@ -3,7 +3,8 @@ POST https://localhost:5001/api/administrator/
 Content-Type: application/json
 
 {
-    "Name": "Lorem Ipsum"
+    "Name": "Lorem Ipsum",
+    "Password": "123456"
 }
 ###
 
@@ -21,7 +22,8 @@ Content-Type: application/json
 
 {
     "Id": 1,
-    "Name": "Ipsum Lorem"
+    "Name": "Ipsum Lorem",
+    "Password": "12345"
 }
 
 
