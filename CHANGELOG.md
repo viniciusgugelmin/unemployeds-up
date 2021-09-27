@@ -25,3 +25,8 @@
 - Prototype login
 - Thales contributions (login prototype)
 
+## [1.3.0] - 2021-09-26
+- DAO implementation
+- 3 models/controllers/DAO working
+- First axios request in Angular working
+

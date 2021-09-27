@@ -2,7 +2,7 @@
 - Criar mais documentos de caso de uso
 OK - Acrescentar descrição de funcionalidades no arquivo de documentação
 OK - Acrescentar sumário de ilustrações na documentação
-- Fazer protótipo em HTML, CSS e JS básico
+OK Fazer protótipo em HTML, CSS e JS básico
 - Fazer pesquisas de campo
 OK Fazer reunião semanal
 OK Verificar atualizações no README
