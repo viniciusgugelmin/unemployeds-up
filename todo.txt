@@ -1,5 +1,5 @@
 - Criar diagramas de caso de uso
-- Criar mais documentos de caso de uso
+OK - Criar mais documentos de caso de uso
 OK - Acrescentar descrição de funcionalidades no arquivo de documentação
 OK - Acrescentar sumário de ilustrações na documentação
 OK Fazer protótipo em HTML, CSS e JS básico
