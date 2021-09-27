@@ -23,6 +23,7 @@ Content-Type: application/json
 
 {
     "Id": 1,
+    "CourseId": 1,
     "Name": "Ipsum Lorem",
     "Description": "Lorem ipsum dolor sit amet."
 }

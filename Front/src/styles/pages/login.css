@@ -16,9 +16,8 @@
 
 .up-login__box-wrapper {
     max-width: 400px;
-    padding: 35px;
+    padding: 35px 35px 55px 35px;
     width: 100%;
-    min-height: 400px;
     height: auto;
     background: #fff;
     border-radius: 3px;

@@ -4,6 +4,7 @@ Content-Type: application/json
 
 {
     "Name": "Lorem Ipsum",
+    "Email": "test@gmail.com",
     "Password": "123456"
 }
 ###
@@ -23,6 +24,7 @@ Content-Type: application/json
 {
     "Id": 1,
     "Name": "Ipsum Lorem",
+    "Email": "test@gmail.com",
     "Password": "12345"
 }
 

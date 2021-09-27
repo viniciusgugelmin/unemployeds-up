@@ -50,6 +50,10 @@ namespace Back.Controllers
                 return ValidationProblem("Name is required");
             }
 
+            if (administrator.Email == null) {
+                return ValidationProblem("Email is required");
+            }
+
             if (administrator.Password == null) {
                 return ValidationProblem("Password is required");
             }
@@ -67,6 +71,10 @@ namespace Back.Controllers
         {
             if (administrator.Name == null) {
                 return ValidationProblem("Name is required");
+            }
+
+            if (administrator.Email == null) {
+                return ValidationProblem("Email is required");
             }
 
             if (administrator.Password == null) {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Back.DAO;
 using Back.Data;
 using Back.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -11,16 +12,22 @@ namespace Back.Controllers
     [Route("api/course")]
     public class CourseController : ControllerBase
     {
-        private readonly DataContext _dataContext;
+        private readonly DataContext _dataContext; 
+        private readonly CourseDAO _courseDAO;
 
-        public CourseController(DataContext dataContext) 
-            => _dataContext = dataContext;
+        public CourseController(
+            DataContext dataContext,
+            CourseDAO courseDAO) 
+        {
+            _dataContext = dataContext;
+            _courseDAO = courseDAO;
+        } 
         
         // GET
         // /api/course
         [HttpGet]
         [Route("")]
-        public IActionResult Get() => Ok(_dataContext.Courses.ToList());
+        public IActionResult Get() => Ok(_courseDAO.List());
 
         // GET
         // /api/course/{id}
@@ -28,7 +35,7 @@ namespace Back.Controllers
         [Route("{id}")]
         public IActionResult GetById([FromRoute] Int32 id)
         {
-            Course course = _dataContext.Courses.Find(id);
+            Course course = _courseDAO.FindById(id);
 
             if (course == null) return NotFound();
             
@@ -41,11 +48,11 @@ namespace Back.Controllers
         [Route("{id}/subjects")]
         public IActionResult GetSubjects([FromRoute] Int32 id)
         {
-            Course course = _dataContext.Courses.Find(id);
+            Course course = _courseDAO.FindById(id);
 
             if (course == null) return NotFound();
             
-            return Ok(course);
+            return Ok(course.Subject);
         }
 
         // PUT
@@ -54,8 +61,15 @@ namespace Back.Controllers
         [Route("")]
         public IActionResult Update([FromBody] Course course)
         {
-            _dataContext.Courses.Update(course);
-            _dataContext.SaveChanges();
+            if (course.Name == null) {
+                return ValidationProblem("Name is required");
+            }
+
+            if (course.Description == null) {
+                return ValidationProblem("Description is required");
+            }
+
+            _courseDAO.Update(course);
 
             return Ok(course);
         }
@@ -66,8 +80,16 @@ namespace Back.Controllers
         [Route("")]
         public IActionResult Create([FromBody] Course course) 
         {
-            _dataContext.Courses.Add(course);
-            _dataContext.SaveChanges();
+            if (course.Name == null) {
+                return ValidationProblem("Name is required");
+            }
+
+            if (course.Description == null) {
+                return ValidationProblem("Description is required");
+            }
+
+            _courseDAO.Create(course);
+
             return Created("", course);
         }
 
@@ -77,14 +99,13 @@ namespace Back.Controllers
         [Route("{id}")]
         public IActionResult DeleteById([FromRoute] Int32 id)
         {
-            Course course = _dataContext.Courses.Find(id);
+            Boolean courseExists = _courseDAO.CourseExists(id);
 
-            if (course == null) return NotFound();
+            if (!courseExists) return NotFound();
 
-            _dataContext.Courses.Remove(course);
-            _dataContext.SaveChanges();
+            _courseDAO.Delete(id);
 
-            return Ok(_dataContext.Courses.ToList());
+            return Ok(_courseDAO.List());
         }
     }
 }

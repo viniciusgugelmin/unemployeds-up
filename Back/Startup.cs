@@ -35,7 +35,10 @@ namespace Back
                 );
 
 
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson(options =>
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
+            
             services
                 .AddSwaggerGen(c =>
                 {
@@ -46,6 +49,8 @@ namespace Back
 
             // DAO Scopes
             services.AddScoped<AdministratorDAO>();
+            services.AddScoped<CourseDAO>();
+            services.AddScoped<SubjectDAO>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
