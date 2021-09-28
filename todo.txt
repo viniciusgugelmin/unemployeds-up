@@ -1,4 +1,4 @@
-- Criar diagramas de caso de uso
+OK - Criar diagramas de caso de uso
 OK - Criar mais documentos de caso de uso
 OK - Acrescentar descrição de funcionalidades no arquivo de documentação
 OK - Acrescentar sumário de ilustrações na documentação
@@ -8,7 +8,7 @@ OK Fazer reunião semanal
 OK Verificar atualizações no README
 OK - Fazer especificação de requisitos funcionais
 OK - Fazer especificação de requisitos não funcionais
-- Fazer diagramas de arquitetura do sistema
+OK - Fazer diagramas de arquitetura do sistema
 - Verificar ortografia da documentação
 OK - Iniciar projeto C#
 OK - Baixar pacotes (Entity Framework,...)

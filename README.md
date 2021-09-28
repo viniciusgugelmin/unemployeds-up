@@ -22,9 +22,6 @@
   </p>
 </p>
 
-
-
-
 <details open="open">
   <summary><h2 style="display: inline-block">Abstract</h2></summary>
   <ol>
@@ -37,29 +34,25 @@
   </ol>
 </details>
 
-
-
 ## About The Project
 
 Project - Visual Software Development & Systems Analysis and Design (1st Bimester - Positivo University)
 
- #### Documentation
- 
- [Documentation](https://github.com/viniciusgugelmin/unemployeds-up/blob/main/Documentation/Documentation.pdf)
- 
- ### UseCase
- 
- [UC001](https://github.com/viniciusgugelmin/unemployeds-up/blob/main/Documentation/UseCase/UC001.pdf)
- 
- [UC002](https://github.com/viniciusgugelmin/unemployeds-up/blob/main/Documentation/UseCase/UC002.pdf)
+#### Documentation
 
+[Documentation](https://github.com/viniciusgugelmin/unemployeds-up/blob/main/Documentation/Documentation.pdf)
+
+### UseCase
+
+[UC001](https://github.com/viniciusgugelmin/unemployeds-up/blob/main/Documentation/UseCase/UC001.pdf)
+
+[UC002](https://github.com/viniciusgugelmin/unemployeds-up/blob/main/Documentation/UseCase/UC002.pdf)
+
+[UC003](https://github.com/viniciusgugelmin/unemployeds-up/blob/main/Documentation/UseCase/UC003.pdf)
 
 ## Roadmap
 
 See the [open issues](https://github.com/viniciusgugelmin/unemployeds-up/issues) for a list of proposed features (and known issues).
-
-
-
 
 ## Contributing
 
@@ -71,8 +64,6 @@ Any contributions you make are **greatly appreciated**.
 4. Push to the Branch (`git push origin feature/<featureName>`)
 5. Open a Pull Request
 
-
-
 ## Contact
 
 Vinícius Kruchelski Gugelmin - vinigugelmin@gmail.com
@@ -82,4 +73,3 @@ Lucas Rodrigues Leite
 Thales Fuckner
 
 Project Link: [https://github.com/viniciusgugelmin/unemployeds-up](https://github.com/viniciusgugelmin/unemployeds-up)
-
