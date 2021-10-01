@@ -10,6 +10,16 @@ Content-Type: application/json
 ###
 
 ###
+POST https://localhost:5001/api/administrator/login/
+Content-Type: application/json
+
+{
+    "Email": "test@gmail.com",
+    "Password": "123456"
+}
+###
+
+###
 GET https://localhost:5001/api/administrator/
 ###
 

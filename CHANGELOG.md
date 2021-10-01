@@ -30,3 +30,6 @@
 - 3 models/controllers/DAO working
 - First axios request in Angular working
 
+## [1.3.1] - 2021-09-30
+- Login (controller, component)
+

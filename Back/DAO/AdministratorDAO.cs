@@ -16,9 +16,23 @@ namespace Back.DAO
 
     public Administrator FindById(int id) => _dataContext.Administrators.Find(id);
 
+    public Administrator FindByEmail(string email) => _dataContext.Administrators.Where(a => a.Email.Equals(email)).First();
+
+    public Administrator Login(string email, string password)
+    {
+        Administrator administrator = _dataContext.Administrators.Where(a => a.Email.Equals(email) && a.Password.Equals(password)).First();
+
+        return administrator;
+    }
+
     public bool AdministratorExists(int? id)
     {
         return _dataContext.Administrators.Any(a => a.Id == id);
+    }
+
+    public bool AdministratorEmailExists(string email, int id = 0)
+    {
+        return _dataContext.Administrators.Any(a => a.Email == email && (id == 0 || a.Id != id));
     }
 
     public void Create(Administrator administrator)

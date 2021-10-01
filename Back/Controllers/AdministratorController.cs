@@ -58,6 +58,12 @@ namespace Back.Controllers
                 return ValidationProblem("Password is required");
             }
 
+            Boolean administratorEmailExists = _administratorDAO.AdministratorEmailExists(administrator.Email, administrator.Id);
+
+             if (administratorEmailExists == true) {
+                return ValidationProblem("Email already registered");
+            }
+
             _administratorDAO.Update(administrator);
 
             return Ok(administrator); 
@@ -79,6 +85,12 @@ namespace Back.Controllers
 
             if (administrator.Password == null) {
                 return ValidationProblem("Password is required");
+            }
+
+            Boolean administratorEmailExists = _administratorDAO.AdministratorEmailExists(administrator.Email);
+
+            if (administratorEmailExists == true) {
+                return ValidationProblem("Email already registered");
             }
             
             _administratorDAO.Create(administrator);
