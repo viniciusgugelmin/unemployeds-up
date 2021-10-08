@@ -14,12 +14,12 @@ namespace Back.Controllers
         private readonly AdministratorDAO _administratorDAO;
 
         public AdministratorLoginController(
-            DataContext dataContext, 
-            AdministratorDAO administratorDAO) 
+            DataContext dataContext,
+            AdministratorDAO administratorDAO)
         {
             _dataContext = dataContext;
             _administratorDAO = administratorDAO;
-        } 
+        }
 
         // POST
         // /api/administrator/login
@@ -30,7 +30,7 @@ namespace Back.Controllers
             Administrator administratorToLogin = _administratorDAO.Login(administrator.Email, administrator.Password);
 
             if (administratorToLogin == null) return NotFound();
-            
+
             return Ok(administratorToLogin);
         }
     }

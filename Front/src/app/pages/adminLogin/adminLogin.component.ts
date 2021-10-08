@@ -1,14 +1,18 @@
-import axios from "axios";
 import { Component, OnInit } from "@angular/core";
 import { HelperService } from "src/app/services/helper.service";
 import { Router } from "@angular/router";
+import { AdministratorLoginService } from "src/app/services/administratorLogin.service";
 
 @Component({
     selector: "app-login",
     templateUrl: "./adminLogin.component.html",
 })
 export class AdminLoginComponent implements OnInit {
-    constructor(private route: Router, private helper: HelperService) {}
+    constructor(
+        private route: Router,
+        private helper: HelperService,
+        private service: AdministratorLoginService
+    ) {}
 
     ngOnInit(): void {
         if (localStorage.getItem("up-user")) {
@@ -17,11 +21,8 @@ export class AdminLoginComponent implements OnInit {
     }
 
     public login(email: string, password: string) {
-        axios
-            .post(`https://localhost:5001/api/administrator/login/`, {
-                Email: email,
-                Password: password,
-            })
+        this.service
+            .login(email, password)
             .then((response) => {
                 localStorage.setItem("up-user", JSON.stringify(response.data));
                 this.helper.openSnackBar("Login successful");
