@@ -18,9 +18,9 @@ OK - Fazer API
 OK - Fazer model de Administrador
 OK - Fazer model de Curso
 OK - Fazer model de Disciplina
-- Fazer model de Estudante
-- Fazer model de Empresa
-- Fazer model de Vaga
+OK - Fazer model de Estudante
+OK - Fazer model de Empresa
+OK - Fazer model de Vaga
 OK - Fazer rota de cadastro de Administrador
 OK - Fazer rota de edição de Administrador
 OK - Fazer rota de listagem de Administradores

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Back.Models
 {
-    public class Course
+    public class Company
     {
         /// Properties
 
@@ -14,10 +14,10 @@ namespace Back.Models
 
         /// Constructor
 
-        public Course() => CreatedAt = DateTime.Now;
+        public Company() => CreatedAt = DateTime.Now;
 
         /// Relations
 
-        public ICollection<Subject> Subjects { get; set; }
+        public ICollection<Vacancy> Vacancies { get; set; }
     }
 }

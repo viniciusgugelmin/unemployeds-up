@@ -24,12 +24,12 @@ namespace Back.Data
         {
             modelBuilder.Entity<Subject>()
             .HasOne(s => s.Course)
-            .WithMany(c => c.Subject)
+            .WithMany(c => c.Subjects)
             .HasForeignKey(s => s.CourseId)
             .IsRequired();
 
             modelBuilder.Entity<Course>()
-            .HasMany(c => c.Subject)
+            .HasMany(c => c.Subjects)
             .WithOne(s => s.Course)
             .OnDelete(DeleteBehavior.Cascade);
         }

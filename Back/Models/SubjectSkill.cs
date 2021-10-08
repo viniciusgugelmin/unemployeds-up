@@ -1,23 +1,23 @@
 using System;
-using System.Collections.Generic;
 
 namespace Back.Models
 {
-    public class Course
+    public class SubjectSkill
     {
         /// Properties
 
         public int Id { get; set; }
+        public int SubjectId { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
         public DateTime CreatedAt { get; set; }
 
         /// Constructor
 
-        public Course() => CreatedAt = DateTime.Now;
+        public SubjectSkill() => CreatedAt = DateTime.Now;
+
 
         /// Relations
 
-        public ICollection<Subject> Subjects { get; set; }
+        public Subject Subject { get; set; }
     }
 }

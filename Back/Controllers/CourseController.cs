@@ -12,17 +12,17 @@ namespace Back.Controllers
     [Route("api/course")]
     public class CourseController : ControllerBase
     {
-        private readonly DataContext _dataContext; 
+        private readonly DataContext _dataContext;
         private readonly CourseDAO _courseDAO;
 
         public CourseController(
             DataContext dataContext,
-            CourseDAO courseDAO) 
+            CourseDAO courseDAO)
         {
             _dataContext = dataContext;
             _courseDAO = courseDAO;
-        } 
-        
+        }
+
         // GET
         // /api/course
         [HttpGet]
@@ -38,7 +38,7 @@ namespace Back.Controllers
             Course course = _courseDAO.FindById(id);
 
             if (course == null) return NotFound();
-            
+
             return Ok(course);
         }
 
@@ -51,8 +51,8 @@ namespace Back.Controllers
             Course course = _courseDAO.FindById(id);
 
             if (course == null) return NotFound();
-            
-            return Ok(course.Subject);
+
+            return Ok(course.Subjects);
         }
 
         // PUT
@@ -61,11 +61,13 @@ namespace Back.Controllers
         [Route("")]
         public IActionResult Update([FromBody] Course course)
         {
-            if (course.Name == null) {
+            if (course.Name == null)
+            {
                 return ValidationProblem("Name is required");
             }
 
-            if (course.Description == null) {
+            if (course.Description == null)
+            {
                 return ValidationProblem("Description is required");
             }
 
@@ -78,13 +80,15 @@ namespace Back.Controllers
         // /api/course
         [HttpPost]
         [Route("")]
-        public IActionResult Create([FromBody] Course course) 
+        public IActionResult Create([FromBody] Course course)
         {
-            if (course.Name == null) {
+            if (course.Name == null)
+            {
                 return ValidationProblem("Name is required");
             }
 
-            if (course.Description == null) {
+            if (course.Description == null)
+            {
                 return ValidationProblem("Description is required");
             }
 
