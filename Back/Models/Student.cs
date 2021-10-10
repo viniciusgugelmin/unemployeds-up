@@ -31,5 +31,7 @@ namespace Back.Models
         public Course Course { get; set; }
 
         public ICollection<StudentSkill> StudentSkills { get; set; }
+
+        public ICollection<StudentVacancy> StudentVacancies { get; set; }
     }
 }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\www\\unemployeds-up\\Back\\Back.csproj": {}
+    "/home/vinicius/www/unemployeds-up/Back/Back.csproj": {}
   },
   "projects": {
-    "C:\\www\\unemployeds-up\\Back\\Back.csproj": {
+    "/home/vinicius/www/unemployeds-up/Back/Back.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\www\\unemployeds-up\\Back\\Back.csproj",
+        "projectUniqueName": "/home/vinicius/www/unemployeds-up/Back/Back.csproj",
         "projectName": "Back",
-        "projectPath": "C:\\www\\unemployeds-up\\Back\\Back.csproj",
-        "packagesPath": "C:\\Users\\Vinicius\\.nuget\\packages\\",
-        "outputPath": "C:\\www\\unemployeds-up\\Back\\obj\\",
+        "projectPath": "/home/vinicius/www/unemployeds-up/Back/Back.csproj",
+        "packagesPath": "/home/vinicius/.nuget/packages/",
+        "outputPath": "/home/vinicius/www/unemployeds-up/Back/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Vinicius\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/vinicius/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -83,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.401/RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -22,5 +22,7 @@ namespace Back.Models
         public Company Company { get; set; }
 
         public ICollection<VacancySkill> VacancySkills { get; set; }
+
+        public ICollection<StudentVacancy> StudentVacancies { get; set; }
     }
 }
