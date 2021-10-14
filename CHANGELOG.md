@@ -40,7 +40,7 @@
 
 -   Login (controller, component)
 
-## [1.4.0] - 2021-09-30
+## [1.4.0] - 2021-10-13
 
 -   All models created
 -   All DAO created
