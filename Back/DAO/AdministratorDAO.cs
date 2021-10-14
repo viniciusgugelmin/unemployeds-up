@@ -5,52 +5,52 @@ using Back.Data;
 
 namespace Back.DAO
 {
-  public class AdministratorDAO
-  {
-    private readonly DataContext _dataContext;
-
-    public AdministratorDAO(DataContext dataContext) 
-            => _dataContext = dataContext;
-
-    public List<Administrator> List() => _dataContext.Administrators.ToList();
-
-    public Administrator FindById(int id) => _dataContext.Administrators.Find(id);
-
-    public Administrator FindByEmail(string email) => _dataContext.Administrators.Where(a => a.Email.Equals(email)).First();
-
-    public Administrator Login(string email, string password)
+    public class AdministratorDAO
     {
-        Administrator administrator = _dataContext.Administrators.Where(a => a.Email.Equals(email) && a.Password.Equals(password)).First();
+        private readonly DataContext _dataContext;
 
-        return administrator;
-    }
+        public AdministratorDAO(DataContext dataContext)
+                => _dataContext = dataContext;
 
-    public bool AdministratorExists(int? id)
-    {
-        return _dataContext.Administrators.Any(a => a.Id == id);
-    }
+        public List<Administrator> List() => _dataContext.Administrators.ToList();
 
-    public bool AdministratorEmailExists(string email, int id = 0)
-    {
-        return _dataContext.Administrators.Any(a => a.Email == email && (id == 0 || a.Id != id));
-    }
+        public Administrator FindById(int id) => _dataContext.Administrators.Find(id);
 
-    public void Create(Administrator administrator)
-    {
-        _dataContext.Administrators.Add(administrator);
-        _dataContext.SaveChanges();
-    }
+        public Administrator FindByEmail(string email) => _dataContext.Administrators.Where(a => a.Email.Equals(email)).First();
 
-    public void Update(Administrator administrator)
-    {
-        _dataContext.Update(administrator);
-        _dataContext.SaveChanges();
-    }
+        public Administrator Login(string email, string password)
+        {
+            Administrator administrator = _dataContext.Administrators.Where(a => a.Email.Equals(email) && a.Password.Equals(password)).First();
 
-    public void Delete(int id)
-    {
-      _dataContext.Administrators.Remove(FindById(id));
-      _dataContext.SaveChanges();
+            return administrator;
+        }
+
+        public bool AdministratorExists(int? id)
+        {
+            return _dataContext.Administrators.Any(a => a.Id == id);
+        }
+
+        public bool AdministratorEmailExists(string email, int id = 0)
+        {
+            return _dataContext.Administrators.Any(a => a.Email == email && (id == 0 || a.Id != id));
+        }
+
+        public void Create(Administrator administrator)
+        {
+            _dataContext.Administrators.Add(administrator);
+            _dataContext.SaveChanges();
+        }
+
+        public void Update(Administrator administrator)
+        {
+            _dataContext.Update(administrator);
+            _dataContext.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            _dataContext.Administrators.Remove(FindById(id));
+            _dataContext.SaveChanges();
+        }
     }
-  }
 }

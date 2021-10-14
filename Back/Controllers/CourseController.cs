@@ -35,7 +35,7 @@ namespace Back.Controllers
         [Route("{id}")]
         public IActionResult GetById([FromRoute] Int32 id)
         {
-            Course course = _courseDAO.FindById(id);
+            Course course = _courseDAO.FindWithRelations(id);
 
             if (course == null) return NotFound();
 
@@ -48,7 +48,7 @@ namespace Back.Controllers
         [Route("{id}/subjects")]
         public IActionResult GetSubjects([FromRoute] Int32 id)
         {
-            Course course = _courseDAO.FindById(id);
+            Course course = _courseDAO.FindWithRelations(id);
 
             if (course == null) return NotFound();
 

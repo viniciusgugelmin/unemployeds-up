@@ -15,24 +15,24 @@ namespace Back.Data
 
         public DbSet<Administrator> Administrators { get; set; }
 
-        public DbSet<Company> Company { get; set; }
+        public DbSet<Company> Companies { get; set; }
 
-        public DbSet<Vacancy> Vacancy { get; set; }
+        public DbSet<Vacancy> Vacancies { get; set; }
 
-        public DbSet<VacancySkill> VacancySkill { get; set; }
+        public DbSet<VacancySkill> VacancySkills { get; set; }
 
         public DbSet<Course> Courses { get; set; }
 
         public DbSet<Subject> Subjects { get; set; }
 
-        public DbSet<SubjectSkill> SubjectSkill { get; set; }
+        public DbSet<SubjectSkill> SubjectSkills { get; set; }
 
-        public DbSet<Student> Student { get; set; }
+        public DbSet<Student> Students { get; set; }
 
-        public DbSet<StudentSkill> StudentSkill { get; set; }
+        public DbSet<StudentSkill> StudentSkills { get; set; }
 
-        public DbSet<StudentVacancy> StudentVacancy { get; set; }
-        
+        public DbSet<StudentVacancy> StudentVacancies { get; set; }
+
 
         /// Relations
         protected override void OnModelCreating(ModelBuilder modelBuilder)

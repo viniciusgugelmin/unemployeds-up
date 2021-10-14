@@ -17,18 +17,14 @@ namespace Back.DAO
 
         public Course FindById(int id)
         {
-            Course course = _dataContext.Courses.Find(id);
-
-            _dataContext.Courses.Include(c => c.Subjects).Load();
-
-            return course;
+            return _dataContext.Courses.Find(id);
         }
 
-        public Course FindWithSubjects(int id)
+        public Course FindWithRelations(int id)
         {
             return _dataContext.Courses
-                .Include(c => c.Subjects)
-                .FirstOrDefault(c => c.Id == id);
+               .Include(c => c.Subjects)
+               .FirstOrDefault(c => c.Id == id);
         }
 
         public bool CourseExists(int? id)
