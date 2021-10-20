@@ -14,13 +14,13 @@ namespace Back.Controllers
         private readonly AdministratorDAO _administratorDAO;
 
         public AdministratorController(
-            DataContext dataContext, 
-            AdministratorDAO administratorDAO) 
+            DataContext dataContext,
+            AdministratorDAO administratorDAO)
         {
             _dataContext = dataContext;
             _administratorDAO = administratorDAO;
-        } 
-        
+        }
+
         // GET
         // /api/administrator
         [HttpGet]
@@ -36,7 +36,7 @@ namespace Back.Controllers
             Administrator administrator = _administratorDAO.FindById(id);
 
             if (administrator == null) return NotFound();
-            
+
             return Ok(administrator);
         }
 
@@ -46,53 +46,65 @@ namespace Back.Controllers
         [Route("")]
         public IActionResult Update([FromBody] Administrator administrator)
         {
-            if (administrator.Name == null) {
+            Boolean administratorExists = _administratorDAO.AdministratorExists(administrator.Id);
+
+            if (!administratorExists) return NotFound();
+
+            if (administrator.Name == null)
+            {
                 return ValidationProblem("Name is required");
             }
 
-            if (administrator.Email == null) {
+            if (administrator.Email == null)
+            {
                 return ValidationProblem("Email is required");
             }
 
-            if (administrator.Password == null) {
+            if (administrator.Password == null)
+            {
                 return ValidationProblem("Password is required");
             }
 
             Boolean administratorEmailExists = _administratorDAO.AdministratorEmailExists(administrator.Email, administrator.Id);
 
-             if (administratorEmailExists == true) {
+            if (administratorEmailExists == true)
+            {
                 return ValidationProblem("Email already registered");
             }
 
             _administratorDAO.Update(administrator);
 
-            return Ok(administrator); 
+            return Ok(administrator);
         }
 
         // POST
         // /api/administrator
         [HttpPost]
         [Route("")]
-        public IActionResult Create([FromBody] Administrator administrator) 
+        public IActionResult Create([FromBody] Administrator administrator)
         {
-            if (administrator.Name == null) {
+            if (administrator.Name == null)
+            {
                 return ValidationProblem("Name is required");
             }
 
-            if (administrator.Email == null) {
+            if (administrator.Email == null)
+            {
                 return ValidationProblem("Email is required");
             }
 
-            if (administrator.Password == null) {
+            if (administrator.Password == null)
+            {
                 return ValidationProblem("Password is required");
             }
 
             Boolean administratorEmailExists = _administratorDAO.AdministratorEmailExists(administrator.Email);
 
-            if (administratorEmailExists == true) {
+            if (administratorEmailExists == true)
+            {
                 return ValidationProblem("Email already registered");
             }
-            
+
             _administratorDAO.Create(administrator);
 
             return Created("", administrator);
@@ -108,7 +120,7 @@ namespace Back.Controllers
 
             if (!administratorExists) return NotFound();
 
-           _administratorDAO.Delete(id);
+            _administratorDAO.Delete(id);
 
             return Ok(_administratorDAO.List());
         }

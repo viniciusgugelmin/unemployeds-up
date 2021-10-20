@@ -1,0 +1,24 @@
+###
+POST https://localhost:5001/api/student-skill/
+Content-Type: application/json
+
+{
+    "StudentId": 1,
+    "Name": "Lorem ipsum"
+}
+###
+
+###
+PUT https://localhost:5001/api/student-skill/
+Content-Type: application/json
+
+{
+    "Id": 1,
+    "StudentId": 1,
+    "Name": "Ipsum lorem"
+}
+###
+
+###
+DELETE  https://localhost:5001/api/student-skill/1
+###

@@ -61,6 +61,11 @@ namespace Back.Controllers
         [Route("")]
         public IActionResult Update([FromBody] Course course)
         {
+            Boolean courseExists = _courseDAO.CourseExists(course.Id);
+
+            if (!courseExists) return NotFound();
+
+
             if (course.Name == null)
             {
                 return ValidationProblem("Name is required");

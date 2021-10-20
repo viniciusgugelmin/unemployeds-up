@@ -37,10 +37,10 @@ OK Fazer rota de remoção de objeto (Disciplina) relacionado a Curso
 - Fazer rota de edição de Estudante
 - Fazer rota de listagem de Estudantes
 - Fazer rota de remoção de Estudante
-- Fazer rota de criação de Empresa
-- Fazer rota de edição de Empresa
-- Fazer rota de listagem de Empresas
-- Fazer rota de remoção de Empresa
+OK - Fazer rota de criação de Empresa
+OK - Fazer rota de edição de Empresa
+OK - Fazer rota de listagem de Empresas
+OK - Fazer rota de remoção de Empresa
 - Fazer rota de criação de objeto (Vaga) relacionado a Empresa (1N)
 - Fazer rota de edição de objeto (Vaga) relacionado a Empresa
 - Fazer rota de listagem de objetos (Vagas) relacionados a Empresa

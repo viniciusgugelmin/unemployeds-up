@@ -29,7 +29,8 @@ namespace Back
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors(options => {
+            services.AddCors(options =>
+            {
                 options.AddPolicy("CorsPolicy", builder => builder
                 .AllowAnyOrigin()
                 .AllowAnyMethod()
@@ -45,7 +46,7 @@ namespace Back
             services.AddControllers().AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
             );
-            
+
             services
                 .AddSwaggerGen(c =>
                 {
@@ -56,8 +57,15 @@ namespace Back
 
             // DAO Scopes
             services.AddScoped<AdministratorDAO>();
+            services.AddScoped<CompanyDAO>();
             services.AddScoped<CourseDAO>();
+            services.AddScoped<StudentDAO>();
+            services.AddScoped<StudentSkillDAO>();
+            services.AddScoped<StudentVacancyDAO>();
             services.AddScoped<SubjectDAO>();
+            services.AddScoped<SubjectSkillDAO>();
+            services.AddScoped<VacancyDAO>();
+            services.AddScoped<VacancySkillDAO>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

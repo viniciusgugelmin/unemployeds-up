@@ -46,12 +46,33 @@ namespace Back.Controllers
             return Ok(subject);
         }
 
+        // GET
+        // /api/subject/{id}/subject-skills
+        [HttpGet]
+        [Route("{id}/subject-skills")]
+        public IActionResult GetSubjectSkills([FromRoute] Int32 id)
+        {
+            Subject subject = _subjectDAO.FindWithRelations(id);
+
+            if (subject == null) return NotFound();
+
+            return Ok(subject.SubjectSkills);
+        }
+
         // PUT
         // /api/subject/
         [HttpPut]
         [Route("")]
         public IActionResult Update([FromBody] Subject subject)
         {
+            Boolean subjectExists = _subjectDAO.SubjectExists(subject.Id);
+
+            if (!subjectExists) return NotFound();
+
+            Boolean courseExists = _courseDAO.CourseExists(subject.CourseId);
+
+            if (!courseExists) return ValidationProblem("Course doesn't exist");
+
             if (subject.Name == null)
             {
                 return ValidationProblem("Name is required");
@@ -75,7 +96,17 @@ namespace Back.Controllers
         {
             Boolean courseExists = _courseDAO.CourseExists(subject.CourseId);
 
-            if (!courseExists) return NotFound();
+            if (!courseExists) return ValidationProblem("Course doesn't exist");
+
+            if (subject.Name == null)
+            {
+                return ValidationProblem("Name is required");
+            }
+
+            if (subject.Description == null)
+            {
+                return ValidationProblem("Description is required");
+            }
 
             subject.Course = _courseDAO.FindById(subject.CourseId);
             _subjectDAO.Create(subject);

@@ -18,6 +18,10 @@ GET https://localhost:5001/api/subject/1
 ###
 
 ###
+GET https://localhost:5001/api/subject/1/subject-skills
+###
+
+###
 PUT https://localhost:5001/api/subject/
 Content-Type: application/json
 

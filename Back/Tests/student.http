@@ -1,0 +1,49 @@
+###
+POST https://localhost:5001/api/student/
+Content-Type: application/json
+
+{
+    "Name": "Lorem Ipsum",
+    "CourseId": 1,
+    "Gender": true,
+    "Birthdate": "17-09-2001",
+    "Zipcode": "80320220",
+    "Number": "1000",
+    "Password": "123"
+}
+###
+
+###
+GET https://localhost:5001/api/student/
+###
+
+###
+GET https://localhost:5001/api/student/1
+###
+
+###
+GET https://localhost:5001/api/student/1/student-skills
+###
+
+###
+GET https://localhost:5001/api/student/1/student-vacancies
+###
+
+###
+PUT https://localhost:5001/api/student/
+Content-Type: application/json
+
+{
+    "Name": "Lorem Ipsum",
+    "CourseId": 1,
+    "Gender": true,
+    "Birthdate": "17-09-2001",
+    "Zipcode": "80320220",
+    "Number": "1000",
+    "Password": "321"
+}
+
+
+###
+DELETE  https://localhost:5001/api/student/1
+###
