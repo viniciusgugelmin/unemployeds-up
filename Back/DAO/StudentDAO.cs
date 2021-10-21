@@ -15,6 +15,8 @@ namespace Back.DAO
 
         public List<Student> List() => _dataContext.Students.ToList();
 
+        public List<Student> ListByCourseId(int id) => _dataContext.Students.Where(student => student.CourseId == id).ToList();
+
         public Student FindById(int id)
         {
             return _dataContext.Students.Find(id);

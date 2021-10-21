@@ -74,6 +74,8 @@ namespace Back.Controllers
             _subjectSkillDAO.Create(subjectSkill);
 
             /*
+            TODO create studentSkill with this subject
+            
             StudentSkill studentSkill = new StudentSkill(subjectSkill);
 
             studentSkill.Student = _studentDAO.FindById(studentSkill.StudentId);
