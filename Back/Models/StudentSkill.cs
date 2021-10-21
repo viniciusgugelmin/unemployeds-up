@@ -15,6 +15,12 @@ namespace Back.Models
 
         public StudentSkill() => CreatedAt = DateTime.Now;
 
+        public StudentSkill(SubjectSkill subjectSkill)
+        {
+            Name = subjectSkill.Name;
+            CreatedAt = subjectSkill.CreatedAt;
+        }
+
 
         /// Relations
 

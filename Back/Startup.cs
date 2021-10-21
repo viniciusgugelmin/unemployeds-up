@@ -39,9 +39,8 @@ namespace Back
 
             // Database config
             services.AddDbContext<DataContext>(
-                options => options.UseInMemoryDatabase("database")
+                options => options.UseSqlServer(Configuration.GetConnectionString("Unemployeds"))
                 );
-
 
             services.AddControllers().AddNewtonsoftJson(options =>
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
