@@ -15,8 +15,9 @@ namespace Back.Models
 
         public StudentSkill() => CreatedAt = DateTime.Now;
 
-        public StudentSkill(SubjectSkill subjectSkill)
+        public StudentSkill(SubjectSkill subjectSkill, int studentId)
         {
+            StudentId = studentId;
             Name = subjectSkill.Name;
             CreatedAt = subjectSkill.CreatedAt;
         }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Back.DAO;
 using Back.Data;
@@ -73,16 +74,45 @@ namespace Back.Controllers
             subjectSkill.Subject = _subjectDAO.FindById(subjectSkill.SubjectId);
             _subjectSkillDAO.Create(subjectSkill);
 
-            /*
-            TODO create studentSkill with this subject
-            
-            StudentSkill studentSkill = new StudentSkill(subjectSkill);
+            List<Student> studentsWithThisCourse = _studentDAO.ListByCourseId(subjectSkill.Subject.CourseId);
 
-            studentSkill.Student = _studentDAO.FindById(studentSkill.StudentId);
-            _studentSkillDAO.Create(studentSkill);
-            */
+            foreach (Student student in studentsWithThisCourse)
+            {
+                StudentSkill studentSkill = new StudentSkill(subjectSkill, student.Id);
+                studentSkill.Student = _studentDAO.FindById(student.Id);
+                _studentSkillDAO.Create(studentSkill);
+            }
 
             return Created("", subjectSkill);
+        }
+
+
+        // DELETE
+        // /api/subject-skill/{id}/with-related
+        [HttpDelete]
+        [Route("{id}/with-related")]
+        public IActionResult DeleteByIdWithRelated([FromRoute] Int32 id)
+        {
+            Boolean subjectSkillExists = _subjectSkillDAO.SubjectSkillExists(id);
+
+            if (!subjectSkillExists) return NotFound();
+
+            Int32 subjectId = _subjectSkillDAO.FindById(id).SubjectId;
+
+            Subject subject = _subjectDAO.FindWithRelations(subjectId);
+
+            List<Student> studentsWithThisCourse = _studentDAO.ListByCourseId(subject.CourseId);
+
+            SubjectSkill subjectSkill = _subjectSkillDAO.FindById(id);
+
+            foreach (Student student in studentsWithThisCourse)
+            {
+                _studentSkillDAO.DeleteByStudent(student.Id, subjectSkill.Name);
+            }
+
+            _subjectSkillDAO.Delete(id);
+
+            return Ok(subject.SubjectSkills);
         }
 
         // DELETE

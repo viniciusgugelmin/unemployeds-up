@@ -1,0 +1,28 @@
+###
+POST https://localhost:5001/api/subject-skill/
+Content-Type: application/json
+
+{
+    "SubjectId": 1,
+    "Name": "Lorem ipsum"
+}
+###
+
+###
+PUT https://localhost:5001/api/subject-skill/
+Content-Type: application/json
+
+{
+    "Id": 1,
+    "SubjectId": 1,
+    "Name": "Ipsum lorem"
+}
+###
+
+###
+DELETE  https://localhost:5001/api/subject-skill/1/with-related
+###
+
+###
+DELETE  https://localhost:5001/api/subject-skill/1
+###

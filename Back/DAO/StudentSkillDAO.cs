@@ -44,6 +44,17 @@ namespace Back.DAO
             _dataContext.SaveChanges();
         }
 
+        public void DeleteByStudent(int studentId, string name)
+        {
+            List<StudentSkill> studentSkills = _dataContext.StudentSkills.Where(skill => skill.StudentId == studentId).Where(skill => skill.Name == name).ToList();
+
+            foreach (StudentSkill studentSkill in studentSkills)
+            {
+                _dataContext.StudentSkills.Remove(studentSkill);
+            }
+
+            _dataContext.SaveChanges();
+        }
         public void Delete(int id)
         {
             _dataContext.StudentSkills.Remove(FindById(id));
