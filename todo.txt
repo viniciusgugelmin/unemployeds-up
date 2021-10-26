@@ -29,26 +29,27 @@ OK - Fazer rota de criação de Curso
 OK - Fazer rota de edição de Curso
 OK - Fazer rota de listagem de Cursos
 OK - Fazer rota de remoção de Curso
-OK Fazer rota de criação de objeto (Disciplina) relacionado a Curso (1N)
-OK Fazer rota de edição de objeto (Disciplina) relacionado a Curso
-OK Fazer rota de listagem de objetos (Disciplinas) relacionados a Curso
-OK Fazer rota de remoção de objeto (Disciplina) relacionado a Curso
-- Fazer rota de cadastro de Estudante
-- Fazer rota de edição de Estudante
-- Fazer rota de listagem de Estudantes
-- Fazer rota de remoção de Estudante
+OK - Fazer rota de criação de objeto (Disciplina) relacionado a Curso (1N)
+OK - Fazer rota de edição de objeto (Disciplina) relacionado a Curso
+OK - Fazer rota de listagem de objetos (Disciplinas) relacionados a Curso
+OK - Fazer rota de remoção de objeto (Disciplina) relacionado a Curso
+OK - Fazer rota de cadastro de Estudante
+OK - Fazer rota de edição de Estudante
+OK - Fazer rota de listagem de Estudantes
+OK - Fazer rota de remoção de Estudante
 OK - Fazer rota de criação de Empresa
 OK - Fazer rota de edição de Empresa
 OK - Fazer rota de listagem de Empresas
 OK - Fazer rota de remoção de Empresa
-- Fazer rota de criação de objeto (Vaga) relacionado a Empresa (1N)
-- Fazer rota de edição de objeto (Vaga) relacionado a Empresa
-- Fazer rota de listagem de objetos (Vagas) relacionados a Empresa
-- Fazer rota de remoção de objeto (Vaga) relacionado a Empresa
-- Fazer rota de criação de objeto (VagaEstudante) relacionado a Vaga e Estudante (NN)
-- Fazer rota de edição de objeto (VagaEstudante) relacionado a Vaga e Estudante
-- Fazer rota de listagem de objetos (VagasEstudantes) relacionados a Vaga e Estudante
-- Fazer rota de remoção de objeto (VagaEstudante) relacionado a Vaga e Estudante
+OK - Fazer rota de criação de objeto (Vaga) relacionado a Empresa (1N)
+OK - Fazer rota de edição de objeto (Vaga) relacionado a Empresa
+OK - Fazer rota de listagem de objetos (Vagas) relacionados a Empresa
+OK - Fazer rota de remoção de objeto (Vaga) relacionado a Empresa
+OK - Fazer rota de criação de objeto (VagaEstudante) relacionado a Vaga e Estudante (NN)
+OK - Fazer rota de edição de objeto (VagaEstudante) relacionado a Vaga e Estudante
+OK - Fazer rota de listagem de objetos (VagasEstudantes) relacionados a Vaga e Estudante
+OK - Fazer rota de remoção de objeto (VagaEstudante) relacionado a Vaga e Estudante
+- Fazer rota de listagem de Vagas que façam sentido ao Estudante
 - Fazer request de Administrador
 - Fazer request de Curso
 - Fazer request de Disciplina
