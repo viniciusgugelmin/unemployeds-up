@@ -8,6 +8,5 @@ import axios from "axios";
 export class AppComponent implements OnInit {
     title = "Unemployeds";
 
-    // mounted
     ngOnInit(): void {}
 }

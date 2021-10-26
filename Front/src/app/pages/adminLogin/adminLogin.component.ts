@@ -16,7 +16,7 @@ export class AdminLoginComponent implements OnInit {
 
     ngOnInit(): void {
         if (localStorage.getItem("up-user")) {
-            //this.route.navigate(["/admin/home"]);
+            this.goToLogin(true);
         }
     }
 
@@ -27,11 +27,16 @@ export class AdminLoginComponent implements OnInit {
                 localStorage.setItem("up-user", JSON.stringify(response.data));
                 this.helper.openSnackBar("Login successful");
 
-                //this.route.navigate(["/admin/home"]);
+                this.goToLogin();
             })
             .catch((error) => {
                 console.log(error.response);
                 this.helper.openSnackBar("Error, check the console!");
             });
+    }
+
+    goToLogin(init: boolean = false) {
+        this.route.navigate(["/admin/home"]);
+        init ? this.helper.openSnackBar("User already logged") : false;
     }
 }
