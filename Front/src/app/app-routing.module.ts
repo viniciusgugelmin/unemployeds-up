@@ -1,5 +1,5 @@
-import { ErrorNotFoundComponent } from "./errorNotFound/errorNotFound.component";
-import { AdminHomeComponent } from "./adminHome/adminHome.component";
+import { ErrorNotFoundComponent } from "./pages/errorNotFound/errorNotFound.component";
+import { AdminHomeComponent } from "./pages/adminHome/adminHome.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { AdminLoginComponent } from "./pages/adminLogin/adminLogin.component";
 import { NgModule } from "@angular/core";

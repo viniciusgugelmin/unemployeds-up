@@ -7,8 +7,9 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./pages/login/login.component";
 import { AdminLoginComponent } from "./pages/adminLogin/adminLogin.component";
-import { AdminHomeComponent } from "./adminHome/adminHome.component";
-import { ErrorNotFoundComponent } from "./errorNotFound/errorNotFound.component";
+import { AdminHomeComponent } from "./pages/adminHome/adminHome.component";
+import { ErrorNotFoundComponent } from "./pages/errorNotFound/errorNotFound.component";
+import { AdminAsideComponent } from "./components/adminAside/adminAside.component";
 
 @NgModule({
     declarations: [
@@ -17,6 +18,7 @@ import { ErrorNotFoundComponent } from "./errorNotFound/errorNotFound.component"
         AdminLoginComponent,
         AdminHomeComponent,
         ErrorNotFoundComponent,
+        AdminAsideComponent,
     ],
     imports: [
         BrowserModule,
