@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
 
     redirectToAdmin() {
         this.route.navigate(["/admin"]);
-        this.helper.openSnackBar("Students login is not working!");
+        this.helper.openSnackBar(
+            "Login para estudantes ainda não está funcionando!"
+        );
     }
 }

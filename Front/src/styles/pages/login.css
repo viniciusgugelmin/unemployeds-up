@@ -30,6 +30,15 @@
 
 .up-login__title h1 {
     margin-bottom: 10px;
+    font-family: var(--up-font-family);
+    font-size: calc(var(--up-font-size) + 6px);
+    text-transform: uppercase;
+}
+
+.up-login__title small {
+    margin-bottom: 10px;
+    font-family: var(--up-font-family);
+    font-size: calc(var(--up-font-size));
 }
 
 .up-login__form-fields {
@@ -55,7 +64,7 @@
     border: 1px solid #f3f3f3;
     border-radius: 3px;
     border: 1px solid black;
-    width: var(--up-login--input-w);
+    width: 100%;
     padding: 0 var(--up-login--input-pw);
 }
 

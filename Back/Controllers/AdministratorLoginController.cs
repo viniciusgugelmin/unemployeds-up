@@ -27,6 +27,21 @@ namespace Back.Controllers
         [Route("")]
         public IActionResult Login([FromBody] Administrator administrator)
         {
+            if (administrator.Email == "" && administrator.Password == "")
+            {
+                return ValidationProblem("Fill the fields");
+            }
+
+            if (administrator.Email == "")
+            {
+                return ValidationProblem("Email is required");
+            }
+
+            if (administrator.Password == "")
+            {
+                return ValidationProblem("Password is required");
+            }
+
             Administrator administratorToLogin = _administratorDAO.Login(administrator.Email, administrator.Password);
 
             if (administratorToLogin == null) return NotFound();

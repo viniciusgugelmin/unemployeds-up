@@ -8,6 +8,8 @@ import { AdministratorLoginService } from "src/app/services/administratorLogin.s
     templateUrl: "./adminLogin.component.html",
 })
 export class AdminLoginComponent implements OnInit {
+    loading: boolean = false;
+
     constructor(
         private route: Router,
         private helper: HelperService,
@@ -15,28 +17,46 @@ export class AdminLoginComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        if (localStorage.getItem("up-user")) {
+        if (localStorage.getItem("up-admin-user")) {
             this.goToLogin(true);
         }
     }
 
     public login(email: string, password: string) {
+        this.loading = true;
+
+        if (!email || !password) {
+            this.helper.openSnackBar("Preencha todos os campos");
+            this.loading = false;
+            return;
+        }
+
         this.service
             .login(email, password)
             .then((response) => {
-                localStorage.setItem("up-user", JSON.stringify(response.data));
-                this.helper.openSnackBar("Login successful");
+                localStorage.setItem(
+                    "up-admin-user",
+                    JSON.stringify(response.data)
+                );
+                this.helper.openSnackBar("Logado com sucesso!");
 
                 this.goToLogin();
             })
             .catch((error) => {
+                const errorMessage = error.response.data.detail
+                    ? "Preencha todos os campos"
+                    : "Usuário não encontrado";
+
                 console.log(error.response);
-                this.helper.openSnackBar("Error, check the console!");
+                this.helper.openSnackBar(errorMessage);
+            })
+            .finally(() => {
+                this.loading = false;
             });
     }
 
     goToLogin(init: boolean = false) {
         this.route.navigate(["/admin/home"]);
-        init ? this.helper.openSnackBar("User already logged") : false;
+        init ? this.helper.openSnackBar("Usuário já está logado") : false;
     }
 }

@@ -16,11 +16,11 @@ namespace Back.DAO
 
         public Administrator FindById(int id) => _dataContext.Administrators.Find(id);
 
-        public Administrator FindByEmail(string email) => _dataContext.Administrators.Where(a => a.Email.Equals(email)).First();
+        public Administrator FindByEmail(string email) => _dataContext.Administrators.Where(a => a.Email.Equals(email)).FirstOrDefault();
 
         public Administrator Login(string email, string password)
         {
-            Administrator administrator = _dataContext.Administrators.Where(a => a.Email.Equals(email) && a.Password.Equals(password)).First();
+            Administrator administrator = _dataContext.Administrators.Where(a => a.Email.Equals(email) && a.Password.Equals(password)).FirstOrDefault();
 
             return administrator;
         }

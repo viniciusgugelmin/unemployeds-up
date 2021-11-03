@@ -22,6 +22,8 @@ export class AdminAsideComponent implements OnInit {
     ngOnInit(): void {}
 
     getAdministrator(): void {
-        this.administrator = JSON.parse(localStorage.getItem("up-user") ?? "");
+        this.administrator = JSON.parse(
+            localStorage.getItem("up-admin-user") ?? "{}"
+        );
     }
 }
