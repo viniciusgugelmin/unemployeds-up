@@ -44,3 +44,11 @@
 
 -   All models created
 -   All DAO created
+
+## [1.5.0] - 2021-11-03
+
+-   Admin home working
+-   Back updates
+-   Front translations to portuguese
+-   Administrators, students, courses and subjects models and services in Angular
+-   Promise initializer in admin home

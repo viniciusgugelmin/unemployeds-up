@@ -109,6 +109,8 @@ namespace Back.Controllers
                 return ValidationProblem("Password is required");
             }
 
+            student.GenderName = student.Gender ? 'M' : 'F';
+
             _studentDAO.Update(student);
 
             return Ok(student);
@@ -148,6 +150,8 @@ namespace Back.Controllers
             {
                 return ValidationProblem("Password is required");
             }
+
+            student.GenderName = student.Gender ? 'M' : 'F';
 
             student.Course = _courseDAO.FindById(student.CourseId);
             _studentDAO.Create(student);

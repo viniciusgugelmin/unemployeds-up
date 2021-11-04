@@ -3,7 +3,7 @@ POST https://localhost:5001/api/course/
 Content-Type: application/json
 
 {
-    "Name": "Lorem Ipsum",
+    "Name": "Sistemas de informação",
     "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend quam lobortis blandit tristique. Fusce id justo purus. Etiam et viverra velit, ac gravida ex. Sed egestas, mauris vitae tincidunt placerat, nisi libero pellentesque metus, non consequat dui tortor quis dui. Duis accumsan velit in libero convallis aliquet. Suspendisse at."
 }
 ###

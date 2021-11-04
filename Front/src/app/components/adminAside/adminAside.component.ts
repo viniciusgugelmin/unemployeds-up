@@ -26,4 +26,9 @@ export class AdminAsideComponent implements OnInit {
             localStorage.getItem("up-admin-user") ?? "{}"
         );
     }
+
+    public logout(): void {
+        localStorage.removeItem("up-admin-user");
+        this.route.navigate(["/admin"]);
+    }
 }

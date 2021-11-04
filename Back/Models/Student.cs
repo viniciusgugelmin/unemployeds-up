@@ -24,7 +24,6 @@ namespace Back.Models
         public Student()
         {
             CreatedAt = DateTime.Now;
-            GenderName = Gender == true ? 'M' : 'F';
         }
 
         /// Relations
