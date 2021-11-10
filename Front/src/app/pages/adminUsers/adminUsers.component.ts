@@ -1,18 +1,14 @@
-import { CourseService } from "src/app/services/course.service";
-import { StudentService } from "src/app/services/student.service";
 import { AdministratorLoginService } from "src/app/services/administratorLogin.service";
 import { Administrator } from "src/app/models/administrator";
 import { AdministratorService } from "src/app/services/administrator.service";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { HelperService } from "src/app/services/helper.service";
-import { SubjectService } from "src/app/services/subject.service";
-
 @Component({
-    selector: "app-admin-home",
-    templateUrl: "./adminHome.component.html",
+    selector: "app-admin-users",
+    templateUrl: "./adminUsers.component.html",
 })
-export class AdminHomeComponent implements OnInit {
+export class AdminUsersComponent implements OnInit {
     administrator: Administrator = {
         id: 0,
         name: "",
@@ -20,38 +16,14 @@ export class AdminHomeComponent implements OnInit {
         password: "",
         createdAt: "",
     };
-    items: Array<any> = [
-        {
-            title: "Administradores",
-            icon: "admin_panel_settings",
-            var: 0,
-        },
-        {
-            title: "Estudantes",
-            icon: "person",
-            var: 0,
-        },
-        {
-            title: "Cursos",
-            icon: "school",
-            var: 0,
-        },
-        {
-            title: "Disciplinas",
-            icon: "book",
-            var: 0,
-        },
-    ];
+    administrators: Array<Administrator> = [];
     loading: boolean = false;
 
     constructor(
         private route: Router,
         private helper: HelperService,
         private service: AdministratorService,
-        private loginService: AdministratorLoginService,
-        private studentService: StudentService,
-        private courseService: CourseService,
-        private subjectService: SubjectService
+        private loginService: AdministratorLoginService
     ) {}
 
     ngOnInit(): void {
@@ -65,10 +37,12 @@ export class AdminHomeComponent implements OnInit {
 
     runPromises(): void {
         const promiseUserIsCached = async (): Promise<boolean> => {
+            //console.log("promiseUserIsCached");
             return await this.checkIfAdministratorIsCached();
         };
 
         const promiseUserExists = async (): Promise<boolean> => {
+            //console.log("promiseUserExists");
             return await this.checkAdminUserExists();
         };
 
@@ -82,10 +56,7 @@ export class AdminHomeComponent implements OnInit {
                 if (await !promiseUserExists()) throw Error;
             })
             .then(async () => {
-                //await this.getAdminstrators();
-                //await this.getStudents();
-                //await this.getCourses();
-                //await this.getSubjets();
+                await this.getAdminstrators();
             })
             .finally(() => {
                 this.loading = false;
@@ -131,77 +102,13 @@ export class AdminHomeComponent implements OnInit {
         return await this.service
             .get()
             .then((response) => {
-                this.items.map((item) => {
-                    if (item.title === "Administradores") {
-                        item.var = response.data;
-                    }
-                });
+                this.administrators = response.data;
                 return true;
             })
             .catch((error) => {
                 console.log(error.response);
                 this.helper.openSnackBar(
                     "Ocorreu um erro ao tentar carregar os administradores"
-                );
-                return false;
-            });
-    }
-
-    async getStudents(): Promise<boolean> {
-        return await this.studentService
-            .get()
-            .then((response) => {
-                this.items.map((item) => {
-                    if (item.title === "Estudantes") {
-                        item.var = response.data;
-                    }
-                });
-                return true;
-            })
-            .catch((error) => {
-                console.log(error.response);
-                this.helper.openSnackBar(
-                    "Ocorreu um erro ao tentar carregar os estudantes"
-                );
-                return false;
-            });
-    }
-
-    async getCourses(): Promise<boolean> {
-        return await this.courseService
-            .get()
-            .then((response) => {
-                this.items.map((item) => {
-                    if (item.title === "Cursos") {
-                        item.var = response.data;
-                    }
-                });
-                return true;
-            })
-            .catch((error) => {
-                console.log(error.response);
-                this.helper.openSnackBar(
-                    "Ocorreu um erro ao tentar carregar os cursos"
-                );
-                return false;
-            });
-    }
-
-    async getSubjets(): Promise<boolean> {
-        return await this.subjectService
-            .get()
-            .then((response) => {
-                this.items.map((item) => {
-                    if (item.title === "Disciplinas") {
-                        item.var = response.data;
-                    }
-                });
-                return true;
-            })
-            .catch((error) => {
-                console.log(error.response);
-                this.helper.openSnackBar(
-                    "Ocorreu um erro ao tentar carregar as disciplinas"
                 );
                 return false;
             });

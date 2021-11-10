@@ -10,6 +10,8 @@ import { AdminLoginComponent } from "./pages/adminLogin/adminLogin.component";
 import { AdminHomeComponent } from "./pages/adminHome/adminHome.component";
 import { ErrorNotFoundComponent } from "./pages/errorNotFound/errorNotFound.component";
 import { AdminAsideComponent } from "./components/adminAside/adminAside.component";
+import { AdminUsersComponent } from "./pages/adminUsers/adminUsers.component";
+import { AdminUserComponent } from "./pages/adminUser/adminUser.component";
 
 @NgModule({
     declarations: [
@@ -19,6 +21,8 @@ import { AdminAsideComponent } from "./components/adminAside/adminAside.componen
         AdminHomeComponent,
         ErrorNotFoundComponent,
         AdminAsideComponent,
+        AdminUsersComponent,
+        AdminUserComponent,
     ],
     imports: [
         BrowserModule,

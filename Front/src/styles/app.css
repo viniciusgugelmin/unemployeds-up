@@ -9,3 +9,4 @@
 /* pages */
 @import "./pages/login.css";
 @import "./pages/adminHome.css";
+@import "./pages/error.css";

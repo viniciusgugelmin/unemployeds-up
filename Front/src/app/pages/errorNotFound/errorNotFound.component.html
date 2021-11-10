@@ -1,1 +1,15 @@
-<p>error-not-found works!</p>
+<section class="up-error">
+    <h1 class="up-error__title">
+        <span class="up-error__bg"> Error - 404 </span>
+    </h1>
+    <p>Ocorreu um erro, para continuar:</p>
+    <p>
+        * Retorne para a home.<br />
+        * Ou espero para ver se acontece algo.
+    </p>
+    <nav class="up-error__nav">
+        <a [routerLink]="['/']" class="up-error__link">home</a>
+        &nbsp;|&nbsp;
+        <a (click)="logout()" class="up-error__link">sair</a>
+    </nav>
+</section>

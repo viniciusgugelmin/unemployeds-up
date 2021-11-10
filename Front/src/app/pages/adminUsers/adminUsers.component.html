@@ -1,0 +1,148 @@
+<app-admin-aside></app-admin-aside>
+<section
+    class="
+        up-admin-user
+        main-content
+        position-relative
+        max-height-vh-100
+        h-100
+        border-radius-lg
+    "
+>
+    <div class="up-admin-home__container container-fluid">
+        <div class="row">
+            <div class="col-lg-11">
+                <div class="card">
+                    <div class="card-header pb-0">
+                        <div class="row">
+                            <div class="col-lg-6 col-7">
+                                <h6>Lista de administradores</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        *ngIf="administrators.length > 0; else elseBlock"
+                        class="card-body px-0 pb-2"
+                    >
+                        <div class="table-responsive">
+                            <table class="table align-items-center mb-0">
+                                <thead>
+                                    <tr>
+                                        <th
+                                            class="
+                                                text-center
+                                                text-uppercase
+                                                text-secondary
+                                                text-xxs
+                                                font-weight-bolder
+                                                opacity-7
+                                            "
+                                        >
+                                            Name
+                                        </th>
+                                        <th
+                                            class="
+                                                text-center
+                                                text-uppercase
+                                                text-secondary
+                                                text-xxs
+                                                font-weight-bolder
+                                                opacity-7
+                                                ps-2
+                                            "
+                                        >
+                                            Email
+                                        </th>
+                                        <th
+                                            class="
+                                                text-center
+                                                text-uppercase
+                                                text-secondary
+                                                text-xxs
+                                                font-weight-bolder
+                                                opacity-7
+                                            "
+                                        >
+                                            Created at
+                                        </th>
+                                        <th
+                                            class="
+                                                text-center
+                                                text-uppercase
+                                                text-secondary
+                                                text-xxs
+                                                font-weight-bolder
+                                                opacity-7
+                                            "
+                                        >
+                                            Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of administrators">
+                                        <td class="align-middle text-sm">
+                                            <span
+                                                class="text-xs font-weight-bold"
+                                            >
+                                                {{ item.name }}
+                                            </span>
+                                        </td>
+                                        <td class="align-middle text-sm">
+                                            <span
+                                                class="text-xs font-weight-bold"
+                                            >
+                                                {{ item.email }}
+                                            </span>
+                                        </td>
+                                        <td class="align-middle text-sm">
+                                            <span
+                                                class="text-xs font-weight-bold"
+                                            >
+                                                {{
+                                                    item.createdAt
+                                                        | date: "dd/MM/yyyy H:m"
+                                                }}
+                                            </span>
+                                        </td>
+                                        <td
+                                            class="
+                                                align-middle
+                                                text-sm text-center
+                                            "
+                                        >
+                                            <span
+                                                class="text-xs font-weight-bold"
+                                            >
+                                                <button
+                                                    class="btn"
+                                                    [routerLink]="[
+                                                        '/admin/user',
+                                                        item.id
+                                                    ]"
+                                                >
+                                                    <i
+                                                        class="
+                                                            material-icons
+                                                            opacity-10
+                                                        "
+                                                        >edit</i
+                                                    >
+                                                </button>
+                                            </span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <ng-template #elseBlock>
+                        <div class="text-center my-4">
+                            Nenhum administrador cadastrado
+                        </div>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

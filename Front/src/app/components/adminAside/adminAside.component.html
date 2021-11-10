@@ -79,9 +79,9 @@
             </li>
             <li class="nav-item">
                 <a
-                    [routerLink]="['/admin/edit-user']"
+                    [routerLink]="['/admin/user', administrator.id]"
                     class="nav-link text-white {{
-                        route.url === '/admin/edit-user'
+                        route.url === '/admin/user'
                             ? 'bg-gradient-primary active'
                             : ''
                     }}"
@@ -97,7 +97,32 @@
                     >
                         <i class="material-icons opacity-10">edit</i>
                     </div>
-                    <span class="nav-link-text ms-1">Perfil</span>
+                    <span class="nav-link-text ms-1">Meu perfil</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a
+                    [routerLink]="['/admin/users']"
+                    class="nav-link text-white {{
+                        route.url === '/admin/users'
+                            ? 'bg-gradient-primary active'
+                            : ''
+                    }}"
+                >
+                    <div
+                        class="
+                            text-white text-center
+                            me-2
+                            d-flex
+                            align-items-center
+                            justify-content-center
+                        "
+                    >
+                        <i class="material-icons opacity-10"
+                            >format_list_bulleted</i
+                        >
+                    </div>
+                    <span class="nav-link-text ms-1">Listagem</span>
                 </a>
             </li>
         </ul>
