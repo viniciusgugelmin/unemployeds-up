@@ -37,4 +37,38 @@ export class AdministratorService {
     async deleteById(id: number) {
         return await axios.delete(`${this.apiUrl}/${id}/`);
     }
+
+    /// Methods
+
+    validate(checkoutForm: any, helper: any) {
+        if (!checkoutForm.value.name) {
+            helper.openSnackBar("O nome é obrigatório");
+            return false;
+        }
+
+        if (!checkoutForm.value.email) {
+            helper.openSnackBar("O email é obrigatório");
+            return false;
+        }
+
+        if (!helper.isEmail(checkoutForm.value.email)) {
+            helper.openSnackBar("O email é inválido");
+            return false;
+        }
+
+        if (checkoutForm.value.changePassword && !checkoutForm.value.password) {
+            helper.openSnackBar("A senha é obrigatória");
+            return false;
+        }
+
+        if (
+            checkoutForm.value.changePassword &&
+            checkoutForm.value.password !== checkoutForm.value.confirmPassword
+        ) {
+            helper.openSnackBar("As senhas não conferem");
+            return false;
+        }
+
+        return true;
+    }
 }

@@ -16,18 +16,30 @@
                     <div class="card-header pb-0">
                         <div class="row">
                             <div class="col-lg-6 col-7">
-                                <h6>Lista de administradores</h6>
+                                <h6>Lista de cursos</h6>
                             </div>
                         </div>
                     </div>
                     <div
-                        *ngIf="administrators.length > 0; else elseBlock"
+                        *ngIf="subjects.length > 0; else elseBlock"
                         class="card-body px-0 pb-2"
                     >
                         <div class="table-responsive">
                             <table class="table align-items-center mb-0">
                                 <thead>
                                     <tr>
+                                        <th
+                                            class="
+                                                text-center
+                                                text-uppercase
+                                                text-secondary
+                                                text-xxs
+                                                font-weight-bolder
+                                                opacity-7
+                                            "
+                                        >
+                                            Id
+                                        </th>
                                         <th
                                             class="
                                                 text-center
@@ -48,10 +60,9 @@
                                                 text-xxs
                                                 font-weight-bolder
                                                 opacity-7
-                                                ps-2
                                             "
                                         >
-                                            Email
+                                            Course Id
                                         </th>
                                         <th
                                             class="
@@ -80,7 +91,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of administrators">
+                                    <tr *ngFor="let item of subjects">
+                                        <td class="align-middle text-sm">
+                                            <span
+                                                class="text-xs font-weight-bold"
+                                            >
+                                                {{ item.id }}
+                                            </span>
+                                        </td>
                                         <td class="align-middle text-sm">
                                             <span
                                                 class="text-xs font-weight-bold"
@@ -92,7 +110,7 @@
                                             <span
                                                 class="text-xs font-weight-bold"
                                             >
-                                                {{ item.email }}
+                                                {{ item.courseId }}
                                             </span>
                                         </td>
                                         <td class="align-middle text-sm">
@@ -117,7 +135,7 @@
                                                 <button
                                                     class="btn m-0"
                                                     [routerLink]="[
-                                                        '/admin/user',
+                                                        '/admin/subjects',
                                                         item.id
                                                     ]"
                                                 >
@@ -152,13 +170,13 @@
                     </div>
                     <ng-template #elseBlock>
                         <div class="text-center my-4">
-                            Nenhum administrador cadastrado
+                            Nenhuma disciplina cadastrada
                         </div>
                     </ng-template>
                     <a
                         class="btn btn-primary"
                         color="primary"
-                        [routerLink]="['/admin/user']"
+                        [routerLink]="['/admin/subject']"
                         style="
                             max-width: 100px;
                             margin-left: auto;

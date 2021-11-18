@@ -1,14 +1,15 @@
+import { CourseService } from "src/app/services/course.service";
+import { Course } from "./../../models/course";
 import { AdministratorLoginService } from "src/app/services/administratorLogin.service";
 import { Administrator } from "src/app/models/administrator";
-import { AdministratorService } from "src/app/services/administrator.service";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { HelperService } from "src/app/services/helper.service";
 @Component({
-    selector: "app-admin-users",
-    templateUrl: "./adminUsers.component.html",
+    selector: "app-admin-courses",
+    templateUrl: "./adminCourses.component.html",
 })
-export class AdminUsersComponent implements OnInit {
+export class AdminCoursesComponent implements OnInit {
     administrator: Administrator = {
         id: 0,
         name: "",
@@ -16,13 +17,13 @@ export class AdminUsersComponent implements OnInit {
         password: "",
         createdAt: "",
     };
-    administrators: Array<Administrator> = [];
+    courses: Array<Course> = [];
     loading: boolean = false;
 
     constructor(
         private route: Router,
         private helper: HelperService,
-        private service: AdministratorService,
+        private service: CourseService,
         private loginService: AdministratorLoginService
     ) {}
 
@@ -37,12 +38,10 @@ export class AdminUsersComponent implements OnInit {
 
     runPromises(): void {
         const promiseUserIsCached = async (): Promise<boolean> => {
-            //console.log("promiseUserIsCached");
             return await this.checkIfAdministratorIsCached();
         };
 
         const promiseUserExists = async (): Promise<boolean> => {
-            //console.log("promiseUserExists");
             return await this.checkAdminUserExists();
         };
 
@@ -56,7 +55,7 @@ export class AdminUsersComponent implements OnInit {
                 if (await !promiseUserExists()) throw Error;
             })
             .then(async () => {
-                await this.getAdminstrators();
+                await this.getCourses();
             })
             .finally(() => {
                 this.loading = false;
@@ -99,17 +98,17 @@ export class AdminUsersComponent implements OnInit {
             });
     }
 
-    async getAdminstrators(): Promise<boolean> {
+    async getCourses(): Promise<boolean> {
         return await this.service
             .get()
             .then((response) => {
-                this.administrators = response.data;
+                this.courses = response.data;
                 return true;
             })
             .catch((error) => {
                 console.log(error.response);
                 this.helper.openSnackBar(
-                    "Ocorreu um erro ao tentar carregar os administradores"
+                    "Ocorreu um erro ao tentar carregar os cursos"
                 );
                 return false;
             });
@@ -121,23 +120,18 @@ export class AdminUsersComponent implements OnInit {
     }
 
     delete(id: number): void {
-        if (id === this.administrator.id) {
-            this.helper.openSnackBar("Você não pode deletar você mesmo");
-            return;
-        }
-
-        if (!confirm("Deseja realmente excluir este administrador?")) return;
+        if (!confirm("Deseja realmente excluir este curso?")) return;
 
         this.service
             .deleteById(id)
             .then((response) => {
-                this.helper.openSnackBar("Administrador deletado");
+                this.helper.openSnackBar("Curso deletado");
                 this.runPromises();
             })
             .catch((error) => {
                 console.log(error.response);
                 this.helper.openSnackBar(
-                    "Ocorreu um erro ao tentar deletar o administrador"
+                    "Ocorreu um erro ao tentar deletar o curso"
                 );
             });
     }

@@ -4,7 +4,7 @@ export interface Course {
     id: number;
     name: string;
     description: string;
-    createdAt: string;
+    createdAt?: string;
 
-    subject: Array<Subject>;
+    subject?: Array<Subject>;
 }

@@ -5,7 +5,7 @@ export interface Subject {
     courseId: number;
     name: string;
     description: string;
-    createdAt: string;
+    createdAt?: string;
 
-    course: Course;
+    course?: Course;
 }

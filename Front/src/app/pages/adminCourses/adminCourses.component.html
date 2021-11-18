@@ -16,12 +16,12 @@
                     <div class="card-header pb-0">
                         <div class="row">
                             <div class="col-lg-6 col-7">
-                                <h6>Lista de administradores</h6>
+                                <h6>Lista de cursos</h6>
                             </div>
                         </div>
                     </div>
                     <div
-                        *ngIf="administrators.length > 0; else elseBlock"
+                        *ngIf="courses.length > 0; else elseBlock"
                         class="card-body px-0 pb-2"
                     >
                         <div class="table-responsive">
@@ -38,7 +38,7 @@
                                                 opacity-7
                                             "
                                         >
-                                            Name
+                                            Id
                                         </th>
                                         <th
                                             class="
@@ -48,10 +48,9 @@
                                                 text-xxs
                                                 font-weight-bolder
                                                 opacity-7
-                                                ps-2
                                             "
                                         >
-                                            Email
+                                            Name
                                         </th>
                                         <th
                                             class="
@@ -80,19 +79,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of administrators">
+                                    <tr *ngFor="let item of courses">
                                         <td class="align-middle text-sm">
                                             <span
                                                 class="text-xs font-weight-bold"
                                             >
-                                                {{ item.name }}
+                                                {{ item.id }}
                                             </span>
                                         </td>
                                         <td class="align-middle text-sm">
                                             <span
                                                 class="text-xs font-weight-bold"
                                             >
-                                                {{ item.email }}
+                                                {{ item.name }}
                                             </span>
                                         </td>
                                         <td class="align-middle text-sm">
@@ -117,7 +116,7 @@
                                                 <button
                                                     class="btn m-0"
                                                     [routerLink]="[
-                                                        '/admin/user',
+                                                        '/admin/course',
                                                         item.id
                                                     ]"
                                                 >
@@ -152,13 +151,13 @@
                     </div>
                     <ng-template #elseBlock>
                         <div class="text-center my-4">
-                            Nenhum administrador cadastrado
+                            Nenhum curso cadastrado
                         </div>
                     </ng-template>
                     <a
                         class="btn btn-primary"
                         color="primary"
-                        [routerLink]="['/admin/user']"
+                        [routerLink]="['/admin/course']"
                         style="
                             max-width: 100px;
                             margin-left: auto;

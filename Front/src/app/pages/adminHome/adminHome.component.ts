@@ -109,13 +109,14 @@ export class AdminHomeComponent implements OnInit {
 
     async checkAdminUserExists(): Promise<boolean> {
         return await this.loginService
-            .login(this.administrator.email, this.administrator.password)
+            .login(this.administrator.email, this.administrator.password ?? "")
             .then((response) => {
                 localStorage.setItem(
                     "up-admin-user",
                     JSON.stringify(response.data)
                 );
 
+                this.administrator = response.data;
                 return true;
             })
             .catch((error) => {

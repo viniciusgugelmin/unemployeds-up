@@ -64,42 +64,6 @@
                     <span class="nav-link-text ms-1">Home</span>
                 </a>
             </li>
-            <li class="nav-item mt-3">
-                <h6
-                    class="
-                        ps-4
-                        ms-2
-                        text-uppercase text-xs text-white
-                        font-weight-bolder
-                        opacity-8
-                    "
-                >
-                    Administradores
-                </h6>
-            </li>
-            <li class="nav-item">
-                <a
-                    [routerLink]="['/admin/user', administrator.id]"
-                    class="nav-link text-white {{
-                        route.url === '/admin/user'
-                            ? 'bg-gradient-primary active'
-                            : ''
-                    }}"
-                >
-                    <div
-                        class="
-                            text-white text-center
-                            me-2
-                            d-flex
-                            align-items-center
-                            justify-content-center
-                        "
-                    >
-                        <i class="material-icons opacity-10">edit</i>
-                    </div>
-                    <span class="nav-link-text ms-1">Meu perfil</span>
-                </a>
-            </li>
             <li class="nav-item">
                 <a
                     [routerLink]="['/admin/users']"
@@ -122,7 +86,118 @@
                             >format_list_bulleted</i
                         >
                     </div>
-                    <span class="nav-link-text ms-1">Listagem</span>
+                    <span class="nav-link-text ms-1">Administradores</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a
+                    [routerLink]="['/admin/students']"
+                    class="nav-link text-white {{
+                        route.url === '/admin/students'
+                            ? 'bg-gradient-primary active'
+                            : ''
+                    }}"
+                >
+                    <div
+                        class="
+                            text-white text-center
+                            me-2
+                            d-flex
+                            align-items-center
+                            justify-content-center
+                        "
+                    >
+                        <i class="material-icons opacity-10"
+                            >format_list_bulleted</i
+                        >
+                    </div>
+                    <span class="nav-link-text ms-1">Estudantes</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a
+                    [routerLink]="['/admin/courses']"
+                    class="nav-link text-white {{
+                        route.url === '/admin/courses'
+                            ? 'bg-gradient-primary active'
+                            : ''
+                    }}"
+                >
+                    <div
+                        class="
+                            text-white text-center
+                            me-2
+                            d-flex
+                            align-items-center
+                            justify-content-center
+                        "
+                    >
+                        <i class="material-icons opacity-10"
+                            >format_list_bulleted</i
+                        >
+                    </div>
+                    <span class="nav-link-text ms-1">Cursos</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a
+                    [routerLink]="['/admin/subjects']"
+                    class="nav-link text-white {{
+                        route.url === '/admin/subjects'
+                            ? 'bg-gradient-primary active'
+                            : ''
+                    }}"
+                >
+                    <div
+                        class="
+                            text-white text-center
+                            me-2
+                            d-flex
+                            align-items-center
+                            justify-content-center
+                        "
+                    >
+                        <i class="material-icons opacity-10"
+                            >format_list_bulleted</i
+                        >
+                    </div>
+                    <span class="nav-link-text ms-1">Disciplinas</span>
+                </a>
+            </li>
+            <li class="nav-item mt-3">
+                <h6
+                    class="
+                        ps-4
+                        ms-2
+                        text-uppercase text-xs text-white
+                        font-weight-bolder
+                        opacity-8
+                    "
+                >
+                    Configurações
+                </h6>
+            </li>
+            <li class="nav-item">
+                <a
+                    [routerLink]="['/admin/user', administrator.id]"
+                    class="nav-link text-white {{
+                        route.url === '/admin/user/' + administrator.id
+                            ? 'bg-gradient-primary active'
+                            : ''
+                    }}"
+                >
+                    <div
+                        class="
+                            text-white text-center
+                            me-2
+                            d-flex
+                            align-items-center
+                            justify-content-center
+                        "
+                    >
+                        <i class="material-icons opacity-10">edit</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Meu perfil</span>
                 </a>
             </li>
         </ul>

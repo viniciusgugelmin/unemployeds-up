@@ -14,4 +14,26 @@ export class HelperService {
             this.snackBar.dismiss();
         }, timeout * 1000);
     }
+
+    isEmail(email: any) {
+        const re =
+            /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    }
+
+    isEmpty(value: any) {
+        return value === undefined || value === null || value === "";
+    }
+
+    isEmptyArray(value: any) {
+        return value === undefined || value === null || value.length === 0;
+    }
+
+    isEmptyObject(value: any) {
+        return (
+            value === undefined ||
+            value === null ||
+            Object.keys(value).length === 0
+        );
+    }
 }
