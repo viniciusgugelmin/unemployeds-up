@@ -1,4 +1,4 @@
-create database `mydatabase` character set utf8mb4 collate utf8mb4_unicode_ci;
+create database `unemployeds` character set utf8mb4 collate utf8mb4_unicode_ci;
 use `unemployeds`;
 
 create table `administrators` (
