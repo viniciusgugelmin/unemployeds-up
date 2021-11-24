@@ -50,6 +50,14 @@ Project - Visual Software Development & Systems Analysis and Design (1st Bimeste
 
 [UC003](https://github.com/viniciusgugelmin/unemployeds-up/blob/main/Documentation/UseCase/UC003.pdf)
 
+### DataModel
+
+[DataModel](https://github.com/viniciusgugelmin/unemployeds-up/blob/main/Documentation/DataModel/Data%20model%20(relational%20logic).png)
+
+### SQL
+
+[SQL](https://github.com/viniciusgugelmin/unemployeds-up/blob/main/Documentation/SQL/20211121_create_database.sql)
+
 ## Roadmap
 
 See the [open issues](https://github.com/viniciusgugelmin/unemployeds-up/issues) for a list of proposed features (and known issues).
