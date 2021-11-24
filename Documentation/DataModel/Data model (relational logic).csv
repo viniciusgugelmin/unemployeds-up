@@ -1,0 +1,15 @@
+﻿administrators;id;name;email;password;created_at;updated_at;;;;;;;;;;;;;;;;;;;;;;;
+;1;Lorem;loremipsum@gmail.com;$2y$10$4;23/11/2021 00:00;23/11/2021 00:00;;;;;;;;;;;;;;;;;;;;;;;
+;2;Ipsum;loremipsum2@gmail.com;$3y$4402;23/11/2021 00:00;23/11/2021 00:00;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+courses;id;name;description;created_at;updated_at;deleted_at;;students;id;course_id;name;gender;birthdate;zipcode;number;street;city;district;complement;created_at;updated_at;deleted_at;;student_skills;id;student_id;name;created_at;updated_at
+;1;Lorem;Lorem ipsum dolor;23/11/2021 00:00;23/11/2021 00:00;(NULL);;;1;1;Lorem;M;23/11/2001 00:00;80320220;1325;Rua Lorem Ipsum;Lorem;Ipsum;Bloco L;23/11/2021 00:00;23/11/2021 00:00;(NULL);;;1;1;Lorem;23/11/2001 00:00;23/11/2001 00:00
+;2;Ipsum;(NULL);23/11/2021 00:00;23/11/2021 00:00;23/11/2021 00:00;;;2;1;Ipsum;F;23/11/2001 00:00;84500000;1000;Rua Lorem Ipsum;Ipsum;Lorem;(NULL);23/11/2021 00:00;23/11/2021 00:00;(NULL);;;2;2;Ipsum;23/11/2001 00:00;23/11/2001 00:00
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;subjects;id;course_id;name;description;created_at;updated_at;deleted_at;;subject_skills;id;subject_id;name;created_at;updated_at;;student_vancancies;student_id;vacancy_id;created_at;updated_at;
+;;;;;;;;;1;1;Lorem;Lorem ipsum dolor;23/11/2001 00:00;23/11/2001 00:00;(NULL);;;1;1;Lorem;23/11/2001 00:00;23/11/2001 00:00;;;1;1;23/11/2001 00:00;23/11/2001 00:00;
+;;;;;;;;;2;1;Ipsum;(NULL);23/11/2001 00:00;23/11/2001 00:00;23/11/2001 00:00;;;2;1;Ipsum;23/11/2001 00:00;23/11/2001 00:00;;;2;2;23/11/2001 00:00;23/11/2001 00:00;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+companies;id;name;description;created_at;updated_at;deleted_at;;;;;;;;;vacancies;id;company_id;name;description;created_at;updated_at;deleted_at;;vacancy_skills;id;vacancy_id;name;created_at;updated_at
+;1;Lorem;Lorem ipsum dolor;23/11/2021 00:00;23/11/2021 00:00;(NULL);;;;;;;;;;1;1;Lorem;Lorem ipsum dolor;23/11/2001 00:00;23/11/2001 00:00;(NULL);;;1;1;Lorem;23/11/2001 00:00;23/11/2001 00:00
+;2;Ipsum;(NULL);23/11/2021 00:00;23/11/2021 00:00;(NULL);;;;;;;;;;2;2;Ipsum;(NULL);23/11/2001 00:00;23/11/2001 00:00;(NULL);;;2;2;Ipsum;23/11/2001 00:00;23/11/2001 00:00
