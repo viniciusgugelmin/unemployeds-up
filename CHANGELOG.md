@@ -52,3 +52,11 @@
 -   Front translations to portuguese
 -   Administrators, students, courses and subjects models and services in Angular
 -   Promise initializer in admin home
+
+## [1.6.0] - 2021-11-28
+
+-   Diagrams in documentation
+-   Front updates
+-   Admin home updates
+-   Admin lists
+-   Admin edit/delete/create
