@@ -42,4 +42,20 @@ export class SubjectService {
     async deleteById(id: number) {
         return await axios.delete(`${this.apiUrl}/${id}/`);
     }
+
+    /// Methods
+
+    validate(checkoutForm: any, helper: any) {
+        if (!checkoutForm.value.name) {
+            helper.openSnackBar("O nome é obrigatório");
+            return false;
+        }
+
+        if (checkoutForm.value.courseId === 0) {
+            helper.openSnackBar("O curso é obrigatório");
+            return false;
+        }
+
+        return true;
+    }
 }

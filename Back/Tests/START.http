@@ -1,0 +1,47 @@
+###
+POST https://localhost:5001/api/administrator/
+Content-Type: application/json
+
+{
+    "Name": "Lorem Ipsum",
+    "Email": "test@gmail.com",
+    "Password": "123456"
+}
+###
+
+###
+POST https://localhost:5001/api/course/
+Content-Type: application/json
+
+{
+    "Name": "Sistemas de informação",
+    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend quam lobortis blandit tristique. Fusce id justo purus. Etiam et viverra velit, ac gravida ex. Sed egestas, mauris vitae tincidunt placerat, nisi libero pellentesque metus, non consequat dui tortor quis dui. Duis accumsan velit in libero convallis aliquet. Suspendisse at."
+}
+###
+
+###
+POST https://localhost:5001/api/student/
+Content-Type: application/json
+
+{
+    "Name": "Lorem Ipsum",
+    "CourseId": 1,
+    "Gender": true,
+    "Birthdate": "17-09-2001",
+    "ZipCode": "80320220",
+    "Number": "1000",
+    "Complement": "Rua teste",
+    "Password": "123"
+}
+###
+
+###
+POST https://localhost:5001/api/subject/
+Content-Type: application/json
+
+{
+    "Name": "Lorem Ipsum",
+    "CourseId": 1,
+    "Description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend quam lobortis blandit tristique. Fusce id justo purus. Etiam et viverra velit, ac gravida ex. Sed egestas, mauris vitae tincidunt placerat, nisi libero pellentesque metus, non consequat dui tortor quis dui. Duis accumsan velit in libero convallis aliquet. Suspendisse at."
+}
+###

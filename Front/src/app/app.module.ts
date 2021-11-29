@@ -1,3 +1,5 @@
+import { AdminStudentComponent } from "./pages/adminStudent/adminStudent.component";
+import { AdminCourseComponent } from "./pages/adminCourse/adminCourse.component";
 import { AdminCoursesComponent } from "./pages/adminCourses/adminCourses.component";
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
@@ -16,6 +18,7 @@ import { AdminUsersComponent } from "./pages/adminUsers/adminUsers.component";
 import { AdminUserComponent } from "./pages/adminUser/adminUser.component";
 import { AdminStudentsComponent } from "./pages/adminStudents/adminStudents.component";
 import { AdminSubjectsComponent } from "./pages/adminSubjects/adminSubjects.component";
+import { AdminSubjectComponent } from "./pages/adminSubject/adminSubject.component";
 
 @NgModule({
     declarations: [
@@ -30,6 +33,9 @@ import { AdminSubjectsComponent } from "./pages/adminSubjects/adminSubjects.comp
         AdminStudentsComponent,
         AdminCoursesComponent,
         AdminSubjectsComponent,
+        AdminCourseComponent,
+        AdminStudentComponent,
+        AdminSubjectComponent,
     ],
     imports: [
         BrowserModule,

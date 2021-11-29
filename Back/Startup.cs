@@ -39,7 +39,7 @@ namespace Back
 
             // Database config
             services.AddDbContext<DataContext>(
-                options => options.UseSqlServer(Configuration.GetConnectionString("Unemployeds"))
+                options => options.UseInMemoryDatabase("database")
                 );
 
             services.AddControllers().AddNewtonsoftJson(options =>

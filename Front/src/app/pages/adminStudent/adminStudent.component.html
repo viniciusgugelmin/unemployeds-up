@@ -1,0 +1,161 @@
+<app-admin-aside></app-admin-aside>
+<section
+    class="
+        up-admin-user
+        main-content
+        position-relative
+        max-height-vh-100
+        h-100
+        border-radius-lg
+    "
+>
+    <div class="up-admin-home__container container-fluid">
+        <div class="row">
+            <div class="col-lg-11">
+                <div class="card">
+                    <div class="card-header pb-0">
+                        <div class="row">
+                            <div class="col-lg-6 col-7">
+                                <h6>
+                                    {{ idParam ? "Editar" : "Criar" }}
+                                    estudante
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <form
+                        [formGroup]="checkoutForm"
+                        (ngSubmit)="onSubmit()"
+                        class="p-4"
+                    >
+                        <label>Nome:</label>
+                        <br />
+                        <input
+                            type="text"
+                            class="form-control w-100"
+                            placeholder="Digite o nome do estudante"
+                            formControlName="name"
+                            required
+                        />
+                        <br />
+                        <label>Curso:</label>
+                        <br />
+                        <select
+                            class="form-control w-100"
+                            formControlName="courseId"
+                            style="border: 1px solid rgba(0, 0, 0, 0.13)"
+                            required
+                        >
+                            <option value="">Selecione o curso</option>
+                            <option
+                                *ngFor="let course of courses"
+                                [value]="course.id"
+                            >
+                                {{ course.name }}
+                            </option>
+                        </select>
+                        <br />
+                        <label>Gênero:</label>
+                        <br />
+                        <label>
+                            <input
+                                type="radio"
+                                formControlName="gender"
+                                value="true"
+                            />
+                            Masculino
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                formControlName="gender"
+                                value="false"
+                            />
+                            Feminino
+                        </label>
+                        <br />
+                        <br />
+                        <label>Data de nascimento:</label>
+                        <input
+                            type="text"
+                            class="form-control w-100"
+                            placeholder="Digite a data de nascimento do estudante"
+                            formControlName="birthdate"
+                            (input)="onBirthdateChange($event.target)"
+                            required
+                        />
+                        <br />
+                        <label>CEP:</label>
+                        <input
+                            type="text"
+                            class="form-control w-100"
+                            placeholder="Digite o CEP do estudante"
+                            formControlName="zipCode"
+                            required
+                        />
+                        <br />
+                        <label>Rua:</label>
+                        <input
+                            type="text"
+                            class="form-control w-100"
+                            placeholder="Digite a rua do estudante"
+                            formControlName="complement"
+                            required
+                        />
+                        <br />
+                        <label>Número:</label>
+                        <input
+                            type="text"
+                            class="form-control w-100"
+                            placeholder="Digite o número da rua do estudante"
+                            formControlName="number"
+                            required
+                        />
+                        <div *ngIf="idParam">
+                            <br />
+                            <label *ngIf="idParam">
+                                <input
+                                    type="checkbox"
+                                    formControlName="changePassword"
+                                    required
+                                />
+                                Alterar senha
+                            </label>
+                            <br />
+                        </div>
+                        <div *ngIf="checkoutForm.value.changePassword">
+                            <br />
+                            <label>Senha:</label>
+                            <br />
+                            <input
+                                type="password"
+                                class="form-control w-100"
+                                placeholder="Digite a senha do estudante"
+                                formControlName="password"
+                                required
+                            />
+                            <br />
+                            <label>Confirmar senha:</label>
+                            <br />
+                            <input
+                                type="password"
+                                class="form-control w-100"
+                                placeholder="Digite a senha do estudante"
+                                formControlName="confirmPassword"
+                                required
+                            />
+                        </div>
+                        <br />
+                        <button
+                            class="btn btn-primary"
+                            color="primary"
+                            type="submit"
+                        >
+                            Salvar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

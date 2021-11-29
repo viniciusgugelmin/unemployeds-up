@@ -6,8 +6,9 @@ export interface Student {
     name: string;
     gender: boolean;
     genderName?: string;
-    birthade: string;
-    zipcode: number;
+    birthdate: string;
+    zipCode: string;
+    number: string;
     complement: string;
     password?: string;
     createdAt?: string;

@@ -1,58 +1,53 @@
-import { CourseService } from "src/app/services/course.service";
-import { StudentService } from "src/app/services/student.service";
+import { SubjectService } from "./../../services/subject.service";
+import { Subject } from "./../../models/subject";
+import { CourseService } from "../../services/course.service";
+import { Course } from "../../models/course";
+import { StudentService } from "../../services/student.service";
+import { Student } from "../../models/student";
 import { AdministratorLoginService } from "src/app/services/administratorLogin.service";
 import { Administrator } from "src/app/models/administrator";
-import { AdministratorService } from "src/app/services/administrator.service";
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { HelperService } from "src/app/services/helper.service";
-import { SubjectService } from "src/app/services/subject.service";
+import { ActivatedRoute } from "@angular/router";
+import { FormBuilder } from "@angular/forms";
 
 @Component({
-    selector: "app-admin-home",
-    templateUrl: "./adminHome.component.html",
+    selector: "app-admin-subject",
+    templateUrl: "./adminSubject.component.html",
 })
-export class AdminHomeComponent implements OnInit {
+export class AdminSubjectComponent implements OnInit {
     administrator: Administrator = {
         id: 0,
         name: "",
         email: "",
-        password: "",
-        createdAt: "",
     };
-    items: Array<any> = [
-        {
-            title: "Administradores",
-            icon: "admin_panel_settings",
-            var: 0,
-        },
-        {
-            title: "Estudantes",
-            icon: "person",
-            var: 0,
-        },
-        {
-            title: "Cursos",
-            icon: "school",
-            var: 0,
-        },
-        {
-            title: "Disciplinas",
-            icon: "book",
-            var: 0,
-        },
-    ];
+    subject: Subject = {
+        id: 0,
+        courseId: 0,
+        name: "",
+        description: "",
+    };
+    courses: Array<Course> = [];
     loading: boolean = false;
+    checkoutForm: any = this.formBuilder.group({
+        courseId: 0,
+        name: "",
+        description: "",
+    });
+    idParam: number = 0;
 
     constructor(
         private route: Router,
+        private $route: ActivatedRoute,
         private helper: HelperService,
-        private service: AdministratorService,
+        private service: SubjectService,
         private loginService: AdministratorLoginService,
-        private studentService: StudentService,
-        private courseService: CourseService,
-        private subjectService: SubjectService
-    ) {}
+        private formBuilder: FormBuilder,
+        private serviceCourse: CourseService
+    ) {
+        this.route.routeReuseStrategy.shouldReuseRoute = () => false;
+    }
 
     ngOnInit(): void {
         if (!localStorage.getItem("up-admin-user")) {
@@ -82,12 +77,10 @@ export class AdminHomeComponent implements OnInit {
                 if (await !promiseUserExists()) throw Error;
             })
             .then(async () => {
-                await this.getAdminstrators();
-                await this.getStudents();
-                await this.getCourses();
-                await this.getSubjets();
+                await this.getSubject();
             })
             .finally(() => {
+                this.getCourses();
                 this.loading = false;
             });
     }
@@ -128,55 +121,90 @@ export class AdminHomeComponent implements OnInit {
             });
     }
 
-    async getAdminstrators(): Promise<boolean> {
+    async getSubject(): Promise<boolean> {
+        this.idParam = 0;
+        this.$route.params.forEach((p) => {
+            if (p.id) {
+                this.idParam = p.id;
+            }
+        });
+
+        if (!this.idParam) {
+            this.checkoutForm.setValue({
+                courseId: 0,
+                name: "",
+                description: "",
+            });
+            return await true;
+        }
+
         return await this.service
-            .get()
+            .getById(this.idParam)
             .then((response) => {
-                this.items.map((item) => {
-                    if (item.title === "Administradores") {
-                        item.var = response.data;
-                    }
+                this.subject = response.data;
+                this.checkoutForm.setValue({
+                    courseId: this.subject.courseId,
+                    name: this.subject.name,
+                    description: this.subject.description,
                 });
                 return true;
             })
             .catch((error) => {
                 console.log(error.response);
                 this.helper.openSnackBar(
-                    "Ocorreu um erro ao tentar carregar os administradores"
+                    "Ocorreu um erro ao tentar carregar a disciplina"
                 );
                 return false;
             });
     }
 
-    async getStudents(): Promise<boolean> {
-        return await this.studentService
-            .get()
+    goToLogin(): void {
+        this.helper.openSnackBar("Você precisa estar logado");
+        this.route.navigate(["/admin"]);
+    }
+
+    public onSubmit(): void {
+        const subjectAux: Subject = {
+            id: this.idParam !== 0 ? this.subject.id : this.idParam,
+            name: this.checkoutForm.value.name,
+            courseId: this.checkoutForm.value.courseId,
+            description: this.checkoutForm.value.description,
+        };
+
+        let validationOkay = this.service.validate(
+            this.checkoutForm,
+            this.helper
+        );
+
+        if (!validationOkay) {
+            return;
+        }
+
+        this.service[this.idParam !== 0 ? "update" : "create"](subjectAux)
             .then((response) => {
-                this.items.map((item) => {
-                    if (item.title === "Estudantes") {
-                        item.var = response.data;
-                    }
-                });
+                this.helper.openSnackBar(
+                    `Disciplina ${
+                        this.idParam !== 0 ? "atualizado" : "criado"
+                    } com sucesso`
+                );
+                this.route.navigate(["/admin/subjects"]);
                 return true;
             })
             .catch((error) => {
                 console.log(error.response);
                 this.helper.openSnackBar(
-                    "Ocorreu um erro ao tentar carregar os estudantes"
+                    `Ocorreu um erro ao tentar ${
+                        this.idParam !== 0 ? "atualizar" : "criar"
+                    } o disciplina`
                 );
-                return false;
             });
     }
 
     async getCourses(): Promise<boolean> {
-        return await this.courseService
+        return await this.serviceCourse
             .get()
             .then((response) => {
-                this.items.map((item) => {
-                    if (item.title === "Cursos") {
-                        item.var = response.data;
-                    }
-                });
+                this.courses = response.data;
                 return true;
             })
             .catch((error) => {
@@ -186,30 +214,5 @@ export class AdminHomeComponent implements OnInit {
                 );
                 return false;
             });
-    }
-
-    async getSubjets(): Promise<boolean> {
-        return await this.subjectService
-            .get()
-            .then((response) => {
-                this.items.map((item) => {
-                    if (item.title === "Disciplinas") {
-                        item.var = response.data;
-                    }
-                });
-                return true;
-            })
-            .catch((error) => {
-                console.log(error.response);
-                this.helper.openSnackBar(
-                    "Ocorreu um erro ao tentar carregar as disciplinas"
-                );
-                return false;
-            });
-    }
-
-    goToLogin(): void {
-        this.helper.openSnackBar("Você precisa estar logado");
-        this.route.navigate(["/admin"]);
     }
 }

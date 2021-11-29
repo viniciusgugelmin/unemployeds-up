@@ -7,8 +7,9 @@ Content-Type: application/json
     "CourseId": 1,
     "Gender": true,
     "Birthdate": "17-09-2001",
-    "Zipcode": "80320220",
+    "ZipCode": "80320220",
     "Number": "1000",
+    "Complement": "Rua teste",
     "Password": "123"
 }
 ###

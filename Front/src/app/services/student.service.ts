@@ -47,4 +47,43 @@ export class StudentService {
     async deleteById(id: number) {
         return await axios.delete(`${this.apiUrl}/${id}/`);
     }
+
+    /// Methods
+
+    validate(checkoutForm: any, helper: any) {
+        if (!checkoutForm.value.name) {
+            helper.openSnackBar("O nome é obrigatório");
+            return false;
+        }
+
+        if (checkoutForm.value.courseId === 0) {
+            helper.openSnackBar("O curso é obrigatório");
+            return false;
+        }
+
+        if (!checkoutForm.value.birthdate) {
+            helper.openSnackBar("A data de aniversário é obrigatório");
+            return false;
+        }
+
+        if (
+            !checkoutForm.value.zipCode ||
+            checkoutForm.value.zipCode.toString().length !== 8
+        ) {
+            helper.openSnackBar("O CEP é obrigatório");
+            return false;
+        }
+
+        if (!checkoutForm.value.number) {
+            helper.openSnackBar("O número é obrigatório");
+            return false;
+        }
+
+        if (!checkoutForm.value.complement) {
+            helper.openSnackBar("A rua é obrigatória");
+            return false;
+        }
+
+        return true;
+    }
 }

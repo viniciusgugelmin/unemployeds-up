@@ -137,3 +137,4 @@ C:\www\unemployeds-up\Back\obj\Debug\net5.0\scopedcss\bundle\Back.styles.css
 C:\www\unemployeds-up\Back\obj\Debug\net5.0\Back.RazorTargetAssemblyInfo.cache
 C:\www\unemployeds-up\Back\obj\Debug\net5.0\Back.csproj.CopyComplete
 C:\www\unemployeds-up\Back\obj\Debug\net5.0\Back.genruntimeconfig.cache
+C:\www\unemployeds-up\Back\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.InMemory.dll

@@ -42,4 +42,15 @@ export class CourseService {
     async deleteById(id: number) {
         return await axios.delete(`${this.apiUrl}/${id}/`);
     }
+
+    /// Methods
+
+    validate(checkoutForm: any, helper: any) {
+        if (!checkoutForm.value.name) {
+            helper.openSnackBar("O nome é obrigatório");
+            return false;
+        }
+
+        return true;
+    }
 }

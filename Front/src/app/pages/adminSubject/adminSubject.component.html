@@ -1,0 +1,78 @@
+<app-admin-aside></app-admin-aside>
+<section
+    class="
+        up-admin-user
+        main-content
+        position-relative
+        max-height-vh-100
+        h-100
+        border-radius-lg
+    "
+>
+    <div class="up-admin-home__container container-fluid">
+        <div class="row">
+            <div class="col-lg-11">
+                <div class="card">
+                    <div class="card-header pb-0">
+                        <div class="row">
+                            <div class="col-lg-6 col-7">
+                                <h6>
+                                    {{ idParam ? "Editar" : "Criar" }}
+                                    disciplina
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                    <form
+                        [formGroup]="checkoutForm"
+                        (ngSubmit)="onSubmit()"
+                        class="p-4"
+                    >
+                        <label>Nome:</label>
+                        <br />
+                        <input
+                            type="text"
+                            class="form-control w-100"
+                            placeholder="Digite o nome da disciplina"
+                            formControlName="name"
+                            required
+                        />
+                        <br />
+                        <label>Curso:</label>
+                        <br />
+                        <select
+                            class="form-control w-100"
+                            formControlName="courseId"
+                            style="border: 1px solid rgba(0, 0, 0, 0.13)"
+                            required
+                        >
+                            <option value="">Selecione o curso</option>
+                            <option
+                                *ngFor="let course of courses"
+                                [value]="course.id"
+                            >
+                                {{ course.name }}
+                            </option>
+                        </select>
+                        <br />
+                        <label>Descrição:</label>
+                        <textarea
+                            class="form-control w-100"
+                            placeholder="Digite a descrição da disciplina"
+                            formControlName="description"
+                            required
+                        ></textarea>
+                        <br />
+                        <button
+                            class="btn btn-primary"
+                            color="primary"
+                            type="submit"
+                        >
+                            Salvar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
